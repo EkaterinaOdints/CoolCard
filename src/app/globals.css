@@ -1,9 +1,6 @@
 /* @import "tailwindcss"; */
 
 :root {
-  /* --background: #ffffff;
-  --foreground: #171717; */
-
   --color-default-dark: #37193a;
   --color-default-light: #ffffff;
   --color-default-grey: #c0bac5;
@@ -12,29 +9,12 @@
   --color-accent-dark: #d200a4;
 
   --color-light-grey: #f8f4fb;
+  --color-medium-grey: #89698d;
   --color-dark-grey: #614864;
+
+  --gradient-light: #fbe8ff, #eee7ff, #d1e3ff;
+  --gradient-dark: #fae0ff, #dccdff, #c1d9ff;
 }
-
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-nunito: var(--font-nunito);
-} */
-/* 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-/* body {
-  /* background: var(--background);
-  color: var(--foreground); */
-/* font-family: var(--font-nunito), Arial, sans-serif; */
-/* font-size: 30px;
-  line-height: 1.1; */
-/* } */
 
 *,
 * ::before,
@@ -84,7 +64,7 @@ body {
   margin: 0;
   font-family: var(--font-nunito), Arial, sans-serif;
   font-size: 30px;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 body::after {
@@ -114,4 +94,34 @@ body.overlay::after {
 
 main {
   flex-grow: 1;
+}
+
+@media (max-width: 1600px) {
+  body {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1440px) {
+  body {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 16px;
+  }
 }

@@ -1,0 +1,89 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  gap: 20px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-accent-main);
+  color: var(--color-default-white);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.link:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.link svg {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 1440px) {
+  .root {
+    gap: 10px;
+  }
+
+  .link {
+    width: 54px;
+    height: 54px;
+  }
+
+  .link svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .root {
+    gap: 7px;
+  }
+
+  .link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .link svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .root {
+    gap: 5px;
+  }
+
+  .link {
+    width: 35px;
+    height: 35px;
+  }
+
+  .link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .link {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    row-gap: 10px;
+    column-gap: 30px;
+  }
+}

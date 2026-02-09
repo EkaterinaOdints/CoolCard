@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { WindowWidthProvider } from "@/src/providers/WindowWidthProvider";
-import Header from "@/src/components/header/Header";
-import Footer from "@/src/components/footer/Footer";
+import Header from "@/src/components/layout/header/Header";
+import Footer from "@/src/components/layout/footer/Footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
