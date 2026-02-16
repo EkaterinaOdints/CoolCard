@@ -62,7 +62,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(150deg, var(--gradient-light));
+  background-image: linear-gradient(150deg, var(--linear-gradient-light));
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;
@@ -79,7 +79,7 @@
 .gradient {
   position: relative;
   background-color: transparent;
-  background-image: linear-gradient(150deg, var(--gradient-light));
+  background-image: linear-gradient(150deg, var(--linear-gradient-light));
   color: var(--color-default-dark);
   box-shadow: none;
   z-index: 1;
@@ -94,7 +94,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(150deg, var(--gradient-dark));
+  background-image: linear-gradient(150deg, var(--linear-gradient-dark));
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;

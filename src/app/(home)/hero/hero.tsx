@@ -1,5 +1,3 @@
-"use client";
-
 import Container from "@/src/components/layout/container/Container";
 import Title from "@/src/components/ui/title/Title";
 import Button from "@/src/components/ui/button/Button";

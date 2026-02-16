@@ -49,7 +49,7 @@
   margin-bottom: 30px;
   border-radius: 30px;
   border: 1px solid var(--color-default-grey);
-  font-size: 20px;
+  font-size: var(--fs-small);
   color: var(--color-medium-grey);
 }
 
@@ -81,10 +81,6 @@
   margin: 0;
 }
 
-/* @media (min-width: 768px) {
-  
-} */
-
 @media (max-width: 1440px) {
   .slider :global(.swiper-wrapper) {
     gap: 40px;
@@ -101,7 +97,6 @@
 
   .itemTitle {
     margin-bottom: 20px;
-    font-size: 18px;
   }
 }
 
@@ -123,7 +118,6 @@
     gap: 7px;
     padding: 7px 12px;
     margin-bottom: 15px;
-    font-size: 16px;
   }
 
   .itemTitle::before {
@@ -150,7 +144,6 @@
     gap: 5px;
     padding: 5px 10px;
     margin-bottom: 10px;
-    font-size: 14px;
   }
 }
 

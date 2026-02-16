@@ -28,7 +28,7 @@
   max-width: 240px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .buttons {
     gap: 7px;
   }
