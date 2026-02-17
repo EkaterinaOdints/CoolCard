@@ -12,7 +12,7 @@ export default function Hero() {
         <div className={styles.wrapper}>
           <div className={styles.main}>
             <div className={styles.banner}>
-              <Title className={styles.bannerTitle} tag="h1" style="big">
+              <Title className={styles.bannerTitle} tag="h1" size="big">
                 Тюнинг ателье банковских карт
               </Title>
               <p className={styles.bannerText}>Сделаем из обычной карты металлическую с&nbsp;уникальным дизайном</p>

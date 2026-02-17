@@ -35,7 +35,7 @@ export default function Pricing() {
     <section className={styles.root}>
       <Container>
         <div className={styles.wrapper}>
-          <Title className={styles.title} tag="h2" style="big">
+          <Title className={styles.title} tag="h2" size="big">
             {/* prettier-ignore */}
             <>
               Создаём&nbsp;<span className={styles.titleIcon}><svg width="30" height="30" aria-hidden="true"><use href={`/sprite.svg#stars-gradient`}></use></svg></span>

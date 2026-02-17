@@ -17,6 +17,10 @@
   .big {
     font-size: 66px;
   }
+
+  .small {
+    font-size: 50px;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -24,11 +28,19 @@
     font-size: 58px;
     letter-spacing: 2px;
   }
+
+  .small {
+    font-size: 48px;
+  }
 }
 
 @media (max-width: 1280px) {
   .big {
     font-size: 50px;
+  }
+
+  .small {
+    font-size: 40px;
   }
 }
 
@@ -36,11 +48,19 @@
   .big {
     font-size: 38px;
   }
+
+  .small {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 576px) {
   .big {
     font-size: 30px;
     letter-spacing: normal;
+  }
+
+  .small {
+    font-size: 22px;
   }
 }

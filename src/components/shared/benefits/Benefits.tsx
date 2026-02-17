@@ -5,6 +5,24 @@ import classNames from "classnames";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
+const benefits = [
+  {
+    id: "style",
+    title: "Стиль",
+    desc: "Превратите вашу скучную пластиковую карту, в стильную металлическую с любым дизайном",
+  },
+  {
+    id: "constructor",
+    title: "Конструктор",
+    desc: "Наш конструктор позволяет вам создать уникальный дизайн быстро и легко",
+  },
+  {
+    id: "deadlines",
+    title: "Сроки",
+    desc: "Ваша карта будет изготовлена всего за 2-3 дня после оформления заказа",
+  },
+];
+
 export default function Benefits() {
   return (
     <div className={styles.root}>
@@ -35,18 +53,16 @@ export default function Benefits() {
           },
         }}
       >
-        <SwiperSlide className={classNames(styles.item, styles.itemStyle)}>
-          <span className={styles.itemTitle}>Стиль</span>
-          <p className={styles.itemText}>Превратите вашу скучную пластиковую карту, в стильную металлическую с любым дизайном</p>
-        </SwiperSlide>
-        <SwiperSlide className={classNames(styles.item, styles.itemConstructor)}>
-          <span className={styles.itemTitle}>Конструктор</span>
-          <p className={styles.itemText}>Наш конструктор позволяет вам создать уникальный дизайн быстро и легко</p>
-        </SwiperSlide>
-        <SwiperSlide className={classNames(styles.item, styles.itemDeadlines)}>
-          <span className={styles.itemTitle}>Сроки</span>
-          <p className={styles.itemText}>Ваша карта будет изготовлена всего за 2-3 дня после оформления заказа</p>
-        </SwiperSlide>
+        {benefits.map(({ id, title, desc }) => {
+          const className = id[0].toUpperCase() + id.slice(1);
+
+          return (
+            <SwiperSlide className={classNames(styles.item, styles[`item${className}`])} key={id}>
+              <span className={styles.itemTitle}>{title}</span>
+              <p className={styles.itemText}>{desc}</p>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
