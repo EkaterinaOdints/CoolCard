@@ -1,6 +1,7 @@
 import Hero from "./hero/Hero";
 import Pricing from "./pricing/Pricing";
 import Showcase from "./showcase/Showcase";
+import Steps from "./steps/Steps";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Pricing />
       <Showcase />
+      <Steps />
     </>
   );
 }
