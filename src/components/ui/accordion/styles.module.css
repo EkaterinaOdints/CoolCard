@@ -1,0 +1,145 @@
+.root {
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--color-default-grey);
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 0;
+  text-align: start;
+  background-color: transparent;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.buttonText {
+  padding: 11px 0;
+}
+
+.buttonIcon {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  width: 64px;
+  border: 1px solid var(--color-default-grey);
+  border-radius: 50%;
+}
+
+.buttonIcon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 14px;
+  height: 2px;
+  background-color: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.buttonIcon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 2px;
+  height: 14px;
+  background-color: currentColor;
+  transform: translate(-50%, -50%);
+  transition: height 0.4s;
+}
+
+.content {
+  overflow: hidden;
+  transition: max-height 0.4s;
+  font-size: var(--fs-small);
+  color: var(--color-medium-grey);
+  margin-right: 104px;
+}
+
+.content p {
+  margin: 0;
+}
+
+.isActive .buttonIcon::after {
+  height: 0;
+}
+
+@media (max-width: 1440px) {
+  .root {
+    padding-bottom: 20px;
+  }
+
+  .button {
+    gap: 30px;
+  }
+
+  .buttonIcon {
+    width: 60px;
+  }
+
+  .content {
+    margin-right: 90px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .root {
+    padding-bottom: 15px;
+  }
+
+  .buttonText {
+    padding: 9px 0;
+  }
+
+  .buttonIcon {
+    width: 50px;
+  }
+
+  .buttonIcon::before {
+    width: 12px;
+  }
+
+  .buttonIcon::after {
+    height: 12px;
+  }
+
+  .content {
+    margin-right: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding-bottom: 10px;
+  }
+
+  .button {
+    gap: 20px;
+  }
+
+  .buttonIcon {
+    width: 40px;
+  }
+
+  .buttonIcon::before {
+    width: 10px;
+  }
+
+  .buttonIcon::after {
+    height: 10px;
+  }
+
+  .content {
+    margin-right: 60px;
+  }
+}
