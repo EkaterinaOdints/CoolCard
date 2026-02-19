@@ -1,0 +1,134 @@
+.root {
+  padding: 60px 0;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-accent-main);
+  color: var(--color-default-light);
+  border-radius: 40px;
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 66%;
+  max-width: 1075px;
+  background-image: url("/images/feedback/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  padding: 70px 0 80px 70px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.description {
+  margin: 0 0 40px;
+  max-width: 560px;
+}
+
+@media (max-width: 1600px) {
+  .description {
+    max-width: 490px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .root {
+    padding: 50px 0;
+  }
+
+  .text {
+    padding: 60px 0 70px 60px;
+  }
+
+  .description {
+    max-width: 465px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .text {
+    padding: 50px 0 60px 50px;
+  }
+
+  .description {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .root {
+    padding: 40px 0;
+  }
+
+  .wrapper {
+    border-radius: 20px;
+  }
+
+  .wrapper::before {
+    width: 60%;
+  }
+
+  .text {
+    padding: 40px 0 40px 40px;
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .description {
+    max-width: 345px;
+    margin: 0 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper::before {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .wrapper::before {
+    position: static;
+    aspect-ratio: 350 / 217;
+    width: 100%;
+    background-image: url("/images/feedback/bg-mobile.png");
+    background-position: top;
+    background-size: contain;
+    margin-left: auto;
+  }
+
+  .text {
+    padding: 12px 30px 30px;
+  }
+
+  .description {
+    max-width: none;
+    margin: 0 0 20px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
