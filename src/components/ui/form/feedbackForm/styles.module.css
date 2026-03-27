@@ -17,7 +17,7 @@
 }
 
 .agreement {
-  margin: 40px 0 0;
+  margin: 0;
   text-align: center;
   font-size: 14px;
   color: var(--color-default-grey);
@@ -31,4 +31,26 @@
 
 .agreementLink:hover {
   text-decoration-color: currentColor;
+}
+
+@media (max-width: 1440px) {
+  .root {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .root {
+    gap: 25px;
+  }
+
+  .agreement {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .root {
+    gap: 20px;
+  }
 }
