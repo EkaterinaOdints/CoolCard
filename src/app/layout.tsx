@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { WindowWidthProvider } from "@/src/providers/WindowWidthProvider";
+import { FeedbackModalProvider } from "@/src/providers/FeedbackModalProvider";
 import Header from "@/src/components/layout/header/Header";
 import Footer from "@/src/components/layout/footer/Footer";
 
@@ -29,9 +30,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${nunito.variable} antialiased`}>
         <WindowWidthProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <FeedbackModalProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </FeedbackModalProvider>
         </WindowWidthProvider>
       </body>
     </html>

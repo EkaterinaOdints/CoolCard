@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext } from "react";
-import { useWindowWidth } from "../hooks/useWindowWidth";
+import { useWindowWidth } from "@/src/hooks/useWindowWidth";
 
 const WindowWidthContext = createContext<number | null>(null);
 
@@ -14,7 +14,7 @@ export function WindowWidthProvider(props: Props) {
 
   const width = useWindowWidth();
 
-  return <WindowWidthContext.Provider value={width}>{children}</WindowWidthContext.Provider>;
+  return <WindowWidthContext value={width}>{children}</WindowWidthContext>;
 }
 
 export function useWindowWidthValue() {

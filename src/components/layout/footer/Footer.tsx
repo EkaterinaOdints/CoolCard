@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "@/src/components/layout/container/Container";
 import styles from "./styles.module.css";
 import Logo from "@/src/components/ui/logo/Logo";
@@ -16,7 +18,7 @@ export default function Footer() {
           </div>
           <NavList className={styles.navList} />
           <div className={styles.buttons}>
-            <Button tag="button" size="small" color="light" className={styles.button}>
+            <Button tag="button" size="small" color="light" className={styles.button} isModalOpener>
               Написать
             </Button>
             <SocialList />

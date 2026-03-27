@@ -1,11 +1,17 @@
+"use client";
+
 import Hero from "./hero/Hero";
 import Pricing from "./pricing/Pricing";
 import Showcase from "./showcase/Showcase";
 import Steps from "./steps/Steps";
 import Faq from "./faq/Faq";
 import Feedback from "./feedback/Feedback";
+import FeedbackModal from "@/src/components/ui/feedbackModal/FeedbackModal";
+import { useFeedbackModal } from "@/src/providers/FeedbackModalProvider";
 
 export default function Home() {
+  const { isModalOpen } = useFeedbackModal();
+
   return (
     <>
       <Hero />
@@ -14,6 +20,7 @@ export default function Home() {
       <Steps />
       <Faq />
       <Feedback />
+      {isModalOpen && <FeedbackModal />}
     </>
   );
 }

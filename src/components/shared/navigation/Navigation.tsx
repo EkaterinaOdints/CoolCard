@@ -3,7 +3,8 @@ import classNames from "classnames";
 import MenuButton from "@/src/components/ui/menuButton/MenuButton";
 import NavList from "@/src/components/shared/navList/NavList";
 import { useState, useRef, useEffect } from "react";
-import { useEscAndBodyClickClose } from "@/src/hooks/useEscAndBodyClickClose";
+import { useEscClickClose } from "@/src/hooks/useEscClickClose";
+import { useBodyClickClose } from "@/src/hooks/useBodyClickClose";
 import { useWindowWidthValue } from "@/src/providers/WindowWidthProvider";
 
 interface Props {
@@ -22,7 +23,13 @@ export default function Navigation(props: Props) {
   const listRef = useRef<HTMLDivElement | null>(null);
   const listHeightStyle = isMobile ? { height: isMenuOpen ? `${listHeight}px` : "0px" } : undefined;
 
-  useEscAndBodyClickClose({
+  useEscClickClose({
+    enabled: isMobile,
+    isOpen: isMenuOpen,
+    onClose: () => setMenuOpen(false),
+  });
+
+  useBodyClickClose({
     enabled: isMobile,
     isOpen: isMenuOpen,
     onClose: () => setMenuOpen(false),

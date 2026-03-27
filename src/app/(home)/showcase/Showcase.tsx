@@ -2,6 +2,7 @@
 
 import classNames from "classnames";
 import styles from "./styles.module.css";
+import { type Design } from "./types";
 import Container from "@/src/components/layout/container/Container";
 import Title from "@/src/components/ui/title/Title";
 import Card from "@/src/components/ui/card/Card";
@@ -14,12 +15,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Grid, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/grid";
-
-interface Design {
-  id: string;
-  colorName: string;
-  pictureName: string;
-}
 
 const designs: Design[] = [
   {

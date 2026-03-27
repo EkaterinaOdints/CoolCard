@@ -1,0 +1,79 @@
+.root {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  background-color: var(--color-overlay-main);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 506px;
+  background-color: var(--color-default-light);
+  border-radius: 20px;
+  padding: 40px 50px;
+}
+
+.wrapper.error {
+  color: var(--color-error);
+}
+
+.closeButton {
+  position: relative;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  width: 30px;
+  margin-right: -100px;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-default-light);
+  border: none;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.closeButton::before,
+.closeButton::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 25px;
+  height: 4px;
+  background-color: currentColor;
+}
+
+.closeButton::after {
+  transform: rotate(90deg);
+}
+
+.closeButton:hover {
+  color: var(--color-accent-main);
+}
+
+.title {
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.text {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+  margin-top: 40px;
+}

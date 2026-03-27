@@ -1,0 +1,52 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 31px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.mark {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--color-default-grey);
+}
+
+.mark::before {
+  content: "";
+  display: block;
+  aspect-ratio: 1 / 1;
+  width: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent-main);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.input:checked ~ .mark::before {
+  opacity: 1;
+}
+
+.errorText {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-error);
+}
