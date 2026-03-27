@@ -49,6 +49,7 @@ export default function FeedbackModal() {
     document.body.style.overflow = "hidden";
 
     return () => {
+      console.log(originalOverflow);
       document.body.style.overflow = originalOverflow;
     };
   }, [isModalOpen]);
