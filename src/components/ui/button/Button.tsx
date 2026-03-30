@@ -1,15 +1,17 @@
+"use client";
+
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { type ReactNode, type MouseEventHandler, type MouseEvent } from "react";
+import { type ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import { useFeedbackModal } from "@/src/providers/FeedbackModalProvider";
+import { useRouter } from "next/navigation";
 
 type CommonProps = {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
-  size?: "small" | "big";
+  variant?: "small" | "big" | "nav";
   color?: "accent" | "light" | "gradient";
-  isDisabled?: boolean;
 };
 
 type LinkProps = CommonProps & {
@@ -17,50 +19,59 @@ type LinkProps = CommonProps & {
   src: string;
   type?: never;
   isModalOpener?: never;
-  onButtonClick?: never;
+  isBackButton?: never;
 };
 
-type ButtonProps = CommonProps & {
-  tag: "button";
-  type?: "button" | "submit";
-  src?: never;
-  isModalOpener?: boolean;
-  onButtonClick?: MouseEventHandler<HTMLButtonElement>;
-};
+type ButtonProps = CommonProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    tag: "button";
+    type?: "button" | "submit";
+    src?: never;
+    isModalOpener?: boolean;
+    isBackButton?: boolean;
+    ref?: React.Ref<HTMLButtonElement>;
+  };
 
 type Props = LinkProps | ButtonProps;
 
 const Button = (props: Props) => {
-  const { children, tag, className, size, color, type = "button", isDisabled, src, isModalOpener, onButtonClick } = props;
   const { setModalOpen } = useFeedbackModal();
+  const router = useRouter();
 
-  const classes = classNames(styles.root, size && styles[size], color && styles[color], isDisabled && styles.disabled, className);
+  const classes = classNames(styles.root, props.variant && styles[props.variant], props.color && styles[props.color], props.className);
 
-  const onClick = (evt: MouseEvent<HTMLButtonElement>) => {
-    if (onButtonClick) {
-      onButtonClick(evt);
-    }
+  if (props.tag === "a") {
+    return (
+      <Link href={props.src} className={classes}>
+        {props.children}
+      </Link>
+    );
+  }
 
-    if (isModalOpener) {
-      setModalOpen(true);
-    }
-  };
+  if (props.tag === "button") {
+    const { children, type = "button", isModalOpener, isBackButton, ref, onClick, ...buttonProps } = props;
 
-  switch (tag) {
-    case "a":
-      return (
-        <Link href={src} className={classes}>
-          {children}
-        </Link>
-      );
-    case "button":
-      return (
-        <button disabled={isDisabled} className={classes} type={type} onClick={onClick}>
-          {children}
-        </button>
-      );
-    default:
-      break;
+    const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
+      onClick?.(evt);
+
+      if (!evt.defaultPrevented && isModalOpener) {
+        setModalOpen(true);
+      }
+
+      if (!evt.defaultPrevented && isBackButton) {
+        if (window.history.length > 1) {
+          router.back();
+        } else {
+          router.push("/");
+        }
+      }
+    };
+
+    return (
+      <button {...buttonProps} className={classes} type={type} ref={ref} onClick={handleClick}>
+        {children}
+      </button>
+    );
   }
 };
 

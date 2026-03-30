@@ -60,7 +60,7 @@ export default function Pricing() {
           </ul>
           <div className={styles.promo}>
             <p className={styles.promoText}>Прямо сейчас вы можете создать собственный шедевр и получить эксклюзивную карту!</p>
-            <Button className={styles.promoButton} tag="a" src="#" size="big" color="accent">
+            <Button className={styles.promoButton} tag="a" src="/create-card" variant="big" color="accent">
               Создать карту
             </Button>
           </div>

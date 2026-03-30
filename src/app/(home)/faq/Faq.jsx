@@ -35,7 +35,7 @@ export default function Faq() {
               )
             })}
           </div>
-          <Button className={styles.button} tag="a" src="#" size="big" color="light">Смотреть больше вопросов</Button>
+          <Button className={styles.button} tag="a" src="#" variant="big" color="light">Смотреть больше вопросов</Button>
         </div>
       </Container>
     </section>

@@ -22,13 +22,13 @@ export default function Header() {
           <Logo onLogoClick={closeMenu} />
           <Navigation isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} closeMenu={closeMenu} />
           <div className={styles.buttons}>
-            <Button className={classNames(styles.button, styles.cartButton)} onButtonClick={closeMenu} tag="button" size="small" color="light">
+            <Button className={classNames(styles.button, styles.cartButton)} onClick={closeMenu} tag="button" variant="small" color="light">
               <svg width="30" height="30" aria-hidden="true">
                 <use href="/sprite.svg#cart"></use>
               </svg>
               <span className={styles.buttonText}>Корзина</span>
             </Button>
-            <Button className={classNames(styles.button, styles.buyButton)} tag="a" src="/" size="small" color="gradient">
+            <Button className={classNames(styles.button, styles.buyButton)} tag="a" src="/create-card" variant="small" color="gradient">
               Создать карту
             </Button>
           </div>

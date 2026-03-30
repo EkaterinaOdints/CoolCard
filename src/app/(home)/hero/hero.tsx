@@ -22,7 +22,7 @@ export default function Hero() {
                   <img src="/images/hero/banner-mobile.svg" width={267} height={228} alt="Черная карта с надписью: Крутая карта" />
                 </picture>
               </div>
-              <Button className={styles.bannerButton} tag="a" size="big" color="accent" src="#">
+              <Button className={styles.bannerButton} tag="a" variant="big" color="accent" src="/create-card">
                 Создать карту
               </Button>
             </div>

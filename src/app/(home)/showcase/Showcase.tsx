@@ -6,6 +6,7 @@ import { type Design } from "./types";
 import Container from "@/src/components/layout/container/Container";
 import Title from "@/src/components/ui/title/Title";
 import Card from "@/src/components/ui/card/Card";
+import Button from "@/src/components/ui/button/Button";
 import { colors, pictures } from "@/src/data/data";
 
 import { useRef } from "react";
@@ -86,8 +87,8 @@ export default function Showcase() {
             Наши дизайны
           </Title>
           <div className={styles.sliderNav}>
-            <button className={classNames(styles.sliderButton, styles.sliderButtonPrev)} type="button" aria-label="Назад" ref={sliderButonPrevRef}></button>
-            <button className={classNames(styles.sliderButton, styles.sliderButtonNext)} type="button" aria-label="Вперед" ref={sliderButonNextRef}></button>
+            <Button className={classNames(styles.sliderButton, styles.sliderButtonPrev)} tag="button" variant="nav" color="light" aria-label="Назад" ref={sliderButonPrevRef}></Button>
+            <Button className={classNames(styles.sliderButton, styles.sliderButtonNext)} tag="button" variant="nav" color="light" aria-label="Вперед" ref={sliderButonNextRef}></Button>
           </div>
           <div className={styles.sliderWrapper}>
             <Swiper

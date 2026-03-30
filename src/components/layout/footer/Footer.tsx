@@ -3,9 +3,9 @@
 import Container from "@/src/components/layout/container/Container";
 import styles from "./styles.module.css";
 import Logo from "@/src/components/ui/logo/Logo";
-import NavList from "@/src/components/shared/navList/NavList";
+import NavList from "@/src/components/shared/nav-list/NavList";
 import Button from "@/src/components/ui/button/Button";
-import SocialList from "@/src/components/shared/socialList/SocialList";
+import SocialList from "@/src/components/shared/social-list/SocialList";
 
 export default function Footer() {
   return (
@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
           <NavList className={styles.navList} />
           <div className={styles.buttons}>
-            <Button tag="button" size="small" color="light" className={styles.button} isModalOpener>
+            <Button tag="button" variant="small" color="light" className={styles.button} isModalOpener>
               Написать
             </Button>
             <SocialList />

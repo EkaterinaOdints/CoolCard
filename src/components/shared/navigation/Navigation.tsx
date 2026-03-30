@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import MenuButton from "@/src/components/ui/menuButton/MenuButton";
-import NavList from "@/src/components/shared/navList/NavList";
+import MenuButton from "@/src/components/ui/menu-button/MenuButton";
+import NavList from "@/src/components/shared/nav-list/NavList";
 import { useState, useRef, useEffect } from "react";
 import { useEscClickClose } from "@/src/hooks/useEscClickClose";
 import { useBodyClickClose } from "@/src/hooks/useBodyClickClose";

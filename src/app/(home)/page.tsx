@@ -6,7 +6,7 @@ import Showcase from "./showcase/Showcase";
 import Steps from "./steps/Steps";
 import Faq from "./faq/Faq";
 import Feedback from "./feedback/Feedback";
-import FeedbackModal from "@/src/components/ui/feedbackModal/FeedbackModal";
+import FeedbackModal from "@/src/components/ui/feedback-modal/FeedbackModal";
 import { useFeedbackModal } from "@/src/providers/FeedbackModalProvider";
 
 export default function Home() {

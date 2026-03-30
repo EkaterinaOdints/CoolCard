@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 import { type FeedbackStatus } from "./types";
-import { type FormValues } from "@/src/components/ui/form/feedbackForm/types";
+import { type FormValues } from "@/src/components/ui/form/feedback-form/types";
 import classNames from "classnames";
-import FeedbackForm from "@/src/components/ui/form/feedbackForm/FeedbackForm";
+import FeedbackForm from "@/src/components/ui/form/feedback-form/FeedbackForm";
 import Button from "@/src/components/ui/button/Button";
 import { sendFeedbackForm } from "@/src/api/feedbackForm";
 import { useFeedbackModal } from "@/src/providers/FeedbackModalProvider";
@@ -83,7 +83,7 @@ export default function FeedbackModal() {
               Ошибка отправки формы
             </span>
             <p className={styles.text}>Отправка данных завершилась с ошибкой.</p>
-            <Button tag="button" size="small" color="gradient" className={styles.button} onButtonClick={() => setStatus("form")}>
+            <Button tag="button" variant="small" color="gradient" className={styles.button} onClick={() => setStatus("form")}>
               Вернуться к форме
             </Button>
           </>

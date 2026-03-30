@@ -1,17 +1,19 @@
 .root {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 14px;
   font-family: "Nunito", "Arial", sans-serif;
   font-weight: 600;
-  border-radius: 52px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   transition:
     background-color 0.3s,
-    box-shadow 0.3s;
+    box-shadow 0.3s,
+    border-color 0.3s;
+  background-clip: border-box;
 }
 
 .root svg {
@@ -23,12 +25,40 @@
   font-size: 20px;
   padding: 20px;
   width: 240px;
+  border-radius: 52px;
 }
 
 .big {
   font-size: 28px;
   padding: 28px;
   width: 340px;
+  border-radius: 52px;
+}
+
+.nav {
+  aspect-ratio: 1 / 1;
+  width: 64px;
+  border-radius: 50%;
+}
+
+.nav::after {
+  content: "";
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 11 / 17;
+  width: 11px;
+  mask-image: url("/images/angle.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  background-color: var(--color-default-dark);
+}
+
+.nav:hover {
+  border-color: transparent;
 }
 
 .accent {
@@ -66,6 +96,7 @@
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;
+  background-clip: border-box;
 }
 
 .light:hover {
@@ -98,20 +129,23 @@
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;
+  background-clip: border-box;
 }
 
 .gradient:not(:disabled):hover::before {
   opacity: 1;
 }
 
-.disabled {
+.root.disabled,
+.root:disabled {
   pointer-events: none;
   background-color: var(--color-light-grey);
   color: var(--color-default-grey);
   box-shadow: none;
 }
 
-.disabled svg {
+.root.disabled,
+.root:disabled svg {
   color: currentColor;
 }
 

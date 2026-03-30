@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
 import { type FormValues } from "./types";
-import { type FeedbackStatus } from "@/src/components/ui/feedbackModal/types";
+import { type FeedbackStatus } from "@/src/components/ui/feedback-modal/types";
 import Button from "@/src/components/ui/button/Button";
-import InputRadioSet from "@/src/components/ui/form/inputRadioSet/InputRadioSet";
-import InputText from "@/src/components/ui/form/inputText/InputText";
+import InputRadioSet from "@/src/components/ui/form/input-radio-set/InputRadioSet";
+import InputText from "@/src/components/ui/form/input-text/InputText";
 import { type UseFormRegister, type UseFormHandleSubmit, type SubmitHandler, type FieldErrors } from "react-hook-form";
 
 const feedbackMethods = [
@@ -54,7 +54,7 @@ export default function FeedbackForm(props: Props) {
           disabled={status === "sending"}
         ></InputText>
       </fieldset>
-      <Button className={styles.button} tag="button" type="submit" size="small" color="accent" isDisabled={!isValid || status === "sending"}>
+      <Button className={styles.button} tag="button" type="submit" variant="small" color="accent" disabled={!isValid || status === "sending"}>
         {status === "sending" ? `Отправка` : `Отправить`}
       </Button>
       <p className={styles.agreement}>

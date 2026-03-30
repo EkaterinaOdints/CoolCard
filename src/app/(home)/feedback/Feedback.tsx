@@ -13,7 +13,7 @@ export default function Feedback() {
               Остались вопросы?
             </Title>
             <p className={styles.description}>Мы готовы на них ответить и помочь вам создать идеальную карту, которая будет соответствовать вашим предпочтениям</p>
-            <Button className={styles.button} tag="button" size="big" color="gradient" isModalOpener>
+            <Button className={styles.button} tag="button" variant="big" color="gradient" isModalOpener>
               Задать вопрос
             </Button>
           </div>

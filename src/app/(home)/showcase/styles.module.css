@@ -18,50 +18,11 @@
 }
 
 .sliderButton {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 1 / 1;
-  width: 64px;
-  border-radius: 50%;
-  border: 1px solid var(--color-default-grey);
   background-color: transparent;
-  cursor: pointer;
 }
 
-.sliderButton::before {
-  content: "";
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  aspect-ratio: 11 / 17;
-  width: 11px;
-  mask-image: url("/images/angle.svg");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  background-color: var(--color-default-dark);
-}
-
-.sliderButtonNext::before {
+.sliderButtonNext {
   transform: rotate(180deg);
-}
-
-.sliderButton::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(to right, var(--linear-gradient-light));
-  opacity: 0;
-  border-radius: inherit;
-  transition: opacity 0.4s;
-}
-
-.sliderButton:hover::after {
-  opacity: 1;
 }
 
 .sliderWrapper {

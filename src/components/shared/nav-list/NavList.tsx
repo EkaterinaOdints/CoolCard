@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const links = [
   {
     id: "about",
-    src: "/about",
+    src: "#",
     text: "О нас",
   },
   {
