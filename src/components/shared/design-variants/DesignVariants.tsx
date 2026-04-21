@@ -116,7 +116,7 @@ export default function DesignVariants(props: Props) {
         <>
           <div className={styles.fileInputWrapper}>
             {fileInputs.map(({ id, title, text }) => {
-              return <CustomFileInput key={id} text={text} title={title} clearFileField={clearFileField} registration={register(id)} />;
+              return <CustomFileInput key={id} text={text} title={title} accept="image/*" clearFileField={clearFileField} registration={register(id)} />;
             })}
           </div>
           <p className={styles.content}>Время разработки дизайна 1-2 рабочих дня. Если вы хотите получить заказ быстрее, поставьте галочку в поле «Срочно». Стоимость + 1 000 ₽</p>
