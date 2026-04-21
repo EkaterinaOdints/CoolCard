@@ -1,0 +1,74 @@
+import styles from "./styles.module.css";
+
+import Image from "next/image";
+import { useEffect, useRef, type RefObject } from "react";
+import classNames from "classnames";
+import { type UseFormRegisterReturn } from "react-hook-form";
+
+import CloseButton from "@/src/components/ui/close-button/CloseButton";
+import useFilePreview from "@/src/hooks/useFilePreview";
+
+interface Props {
+  title?: string;
+  text?: string;
+  accept?: string;
+  clearFileField?: (ref: RefObject<HTMLInputElement>) => void;
+  registration: UseFormRegisterReturn;
+}
+
+export default function CustomFileInput(props: Props) {
+  const { title, text, accept, clearFileField, registration } = props;
+
+  const { file, updateFilePreview, previewUrl } = useFilePreview();
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const changeFile = (target: HTMLInputElement) => {
+    const nextFile = target.files?.[0];
+    if (!nextFile) return;
+
+    updateFilePreview(nextFile);
+  };
+
+  const removeFile = () => {
+    updateFilePreview(null);
+
+    if (inputRef === null) return;
+    if (inputRef.current) inputRef.current.value = "";
+
+    clearFileField?.(inputRef as RefObject<HTMLInputElement>);
+  };
+
+  useEffect(() => {
+    return () => {
+      updateFilePreview(null);
+    };
+  }, [updateFilePreview]);
+
+  return (
+    <div className={classNames(styles.root, file && styles.isFileUploaded)}>
+      <label className={styles.label}>
+        <span className={styles.wrapper}>
+          <input
+            className={styles.input}
+            type="file"
+            accept={accept}
+            {...registration}
+            onChange={(evt) => {
+              registration.onChange(evt);
+              changeFile(evt.target);
+            }}
+            ref={(el) => {
+              registration.ref(el);
+              inputRef.current = el;
+            }}
+          />
+          {previewUrl && <Image className={styles.image} src={previewUrl} alt="Загруженное фото" width={128} height={79} unoptimized />}
+          <span className={styles.text}>{file?.name || text}</span>
+        </span>
+        <span className={styles.title}>{title}</span>
+      </label>
+      {file && <CloseButton className={styles.closeButton} ariaLabel="Удалить файл" onClick={() => removeFile()}></CloseButton>}
+    </div>
+  );
+}

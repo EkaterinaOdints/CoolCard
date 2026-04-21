@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--color-default-grey);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.root::after {
+  content: "";
+  display: block;
+  aspect-ratio: 1 / 1;
+  width: 14px;
+  background-color: currentColor;
+  mask-image: url("/images/close.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+}
+
+.root:hover {
+  color: var(--color-accent-main);
+}

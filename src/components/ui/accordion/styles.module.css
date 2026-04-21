@@ -63,15 +63,19 @@
   transition: max-height 0.4s;
   font-size: var(--fs-small);
   color: var(--color-medium-grey);
-  margin-right: 104px;
+  /* margin-right: 104px; */
 }
 
-.content p {
+.content > p {
   margin: 0;
 }
 
 .isActive .buttonIcon::after {
   height: 0;
+}
+
+.isActive .content {
+  overflow: visible;
 }
 
 @media (max-width: 1440px) {

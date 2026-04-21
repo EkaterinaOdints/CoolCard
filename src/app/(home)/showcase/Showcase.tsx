@@ -13,9 +13,8 @@ import { useRef } from "react";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Navigation } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/grid";
 
 const designs: Design[] = [
   {
@@ -92,7 +91,7 @@ export default function Showcase() {
           </div>
           <div className={styles.sliderWrapper}>
             <Swiper
-              modules={[Grid, Navigation]}
+              modules={[Navigation]}
               navigation
               className={styles.slider}
               onBeforeInit={(swiper) => {

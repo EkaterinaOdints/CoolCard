@@ -1,0 +1,99 @@
+.root {
+  position: relative;
+}
+
+.root.isFileUploaded .wrapper::before {
+  display: none;
+}
+
+.root.isFileUploaded .text {
+  max-width: 107px;
+  align-self: start;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.label:hover .wrapper {
+  background-color: var(--color-extraLight-grey);
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  aspect-ratio: 166 / 141;
+  width: 164px;
+  padding: 16px 19px 11px 19px;
+  background-color: var(--color-default-light);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -1;
+  z-index: -1;
+  display: block;
+  aspect-ratio: 166 / 141;
+  background: linear-gradient(to right bottom, var(--linear-gradient-dark));
+  border-radius: 11px;
+  border: 1px dashed var(--color-default-light);
+}
+
+.wrapper::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  aspect-ratio: 24 / 19;
+  width: 24px;
+  background-color: var(--color-accent-main);
+  mask-image: url("/images/upload.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.input {
+  display: none;
+}
+
+.image {
+  aspect-ratio: 128 / 79;
+  width: 128px;
+  object-fit: cover;
+}
+
+.text {
+  text-align: center;
+  max-width: 120px;
+  padding-bottom: 5px;
+}
+
+.title {
+  color: var(--color-default-grey);
+}
+
+.closeButton {
+  position: absolute;
+  top: 102px;
+  right: 16px;
+}

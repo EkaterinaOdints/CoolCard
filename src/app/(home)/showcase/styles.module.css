@@ -1,6 +1,6 @@
 .root {
   padding: 100px 0 110px;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
   border-radius: 60px;
 }
 
@@ -105,8 +105,8 @@
 
 .sliderButton:disabled {
   pointer-events: none;
-  background-color: var(--color-light-grey);
-  border-color: var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
+  border-color: var(--color-extraLight-grey);
 }
 
 .sliderButton:disabled::before {

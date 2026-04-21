@@ -1,3 +1,7 @@
+type DesignCategory = "landscapes" | "animals" | "cars" | "flowers" | "abstraction" | "all";
+
+type DesignCategoryTitle = "Пейзажи" | "Животные" | "Машины" | "Цветы" | "Абстракция" | "Все";
+
 interface Color {
   name: string;
   style: string;
@@ -7,6 +11,12 @@ interface Picture {
   name: string;
   src: string;
   alt: string;
+  category?: DesignCategory;
+}
+
+interface designCategoryItem {
+  id: DesignCategory;
+  title: DesignCategoryTitle;
 }
 
 const colors: Color[] = [
@@ -73,42 +83,125 @@ const pictures: Picture[] = [
     name: "mountains",
     src: "/images/designs/mountains.png",
     alt: "Горы",
+    category: "landscapes",
   },
   {
     name: "animals",
     src: "/images/designs/animals.png",
     alt: "Лесные жители",
+    category: "animals",
   },
   {
     name: "cars",
     src: "/images/designs/cars.png",
     alt: "Машины",
+    category: "cars",
   },
   {
     name: "sight",
     src: "/images/designs/sight.png",
     alt: "Достопримечательности",
+    category: "landscapes",
   },
   {
     name: "flowers",
     src: "/images/designs/flowers.png",
     alt: "Цветы",
+    category: "flowers",
   },
   {
     name: "figures",
     src: "/images/designs/figures.png",
     alt: "Абстрактные фигуры",
+    category: "abstraction",
   },
   {
     name: "egypt",
     src: "/images/designs/egypt.png",
     alt: "Египет",
+    category: "landscapes",
   },
   {
     name: "bird",
     src: "/images/designs/bird.png",
     alt: "Птица",
+    category: "animals",
+  },
+  {
+    name: "mountains2",
+    src: "/images/designs/mountains.png",
+    alt: "Горы",
+    category: "landscapes",
+  },
+  {
+    name: "animals2",
+    src: "/images/designs/animals.png",
+    alt: "Лесные жители",
+    category: "animals",
+  },
+  {
+    name: "cars2",
+    src: "/images/designs/cars.png",
+    alt: "Машины",
+    category: "cars",
+  },
+  {
+    name: "sight2",
+    src: "/images/designs/sight.png",
+    alt: "Достопримечательности",
+    category: "landscapes",
+  },
+  {
+    name: "flowers2",
+    src: "/images/designs/flowers.png",
+    alt: "Цветы",
+    category: "flowers",
+  },
+  {
+    name: "figures2",
+    src: "/images/designs/figures.png",
+    alt: "Абстрактные фигуры",
+    category: "abstraction",
+  },
+  {
+    name: "egypt2",
+    src: "/images/designs/egypt.png",
+    alt: "Египет",
+    category: "landscapes",
+  },
+  {
+    name: "bird2",
+    src: "/images/designs/bird.png",
+    alt: "Птица",
+    category: "animals",
   },
 ];
 
-export { colors, pictures };
+const designCategories: designCategoryItem[] = [
+  {
+    id: "all",
+    title: "Все",
+  },
+  {
+    id: "landscapes",
+    title: "Пейзажи",
+  },
+  {
+    id: "animals",
+    title: "Животные",
+  },
+  {
+    id: "cars",
+    title: "Машины",
+  },
+  {
+    id: "flowers",
+    title: "Цветы",
+  },
+  {
+    id: "abstraction",
+    title: "Абстракция",
+  },
+] as const;
+
+export { colors, pictures, designCategories, type DesignCategory, type DesignCategoryTitle };

@@ -8,7 +8,8 @@
   --color-accent-main: #fd00c5;
   --color-accent-dark: #d200a4;
 
-  --color-light-grey: #f8f4fb;
+  --color-extraLight-grey: #f8f4fb;
+  --color-light-grey: #eee7ff;
   --color-medium-grey: #89698d;
   --color-dark-grey: #614864;
 
@@ -41,6 +42,7 @@
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .visually-hidden {

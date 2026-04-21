@@ -7,7 +7,7 @@
 .item {
   position: relative;
   padding: 40px;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
   border-radius: 30px;
   overflow: hidden;
   z-index: 1;

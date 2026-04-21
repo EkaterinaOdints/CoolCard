@@ -19,7 +19,7 @@
   width: calc(50% - 10px);
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
   border-radius: 40px;
 }
 

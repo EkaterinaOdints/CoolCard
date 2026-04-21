@@ -1,0 +1,91 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.root.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: var(--color-extraLight-grey);
+  color: inherit;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button::after {
+  content: "";
+  display: block;
+  aspect-ratio: 8 / 14;
+  width: 8px;
+  background-color: var(--color-default-grey);
+  mask-image: url("/images/angle.svg");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  transform: rotate(-90deg);
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.button:hover::after {
+  background-color: var(--color-dark-grey);
+}
+
+.button.isActive::after {
+  transform: rotate(-90deg) scale(-1, 1);
+}
+
+.button.isActive {
+  border-radius: 4px 4px 0 0;
+}
+
+.list {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 100%;
+  max-height: 160px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  border-top: 1px solid var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
+  border-radius: 0 0 4px 4px;
+  overflow-y: scroll;
+  scrollbar-color: var(--color-default-grey) var(--color-extraLight-grey);
+}
+
+.item:hover {
+  background-color: var(--color-light-grey);
+}
+
+.itemButton {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: start;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Container from "@/src/components/layout/container/Container";
 import Title from "@/src/components/ui/title/Title";
-import Accordion from "@/src/components/ui/accordion/accordion";
+import Accordion from "@/src/components/ui/accordion/Accordion";
 import Button from "@/src/components/ui/button/Button";
 
 const faq = [

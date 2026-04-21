@@ -139,7 +139,7 @@
 .root.disabled,
 .root:disabled {
   pointer-events: none;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-extraLight-grey);
   color: var(--color-default-grey);
   box-shadow: none;
 }

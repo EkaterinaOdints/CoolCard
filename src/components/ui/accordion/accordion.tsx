@@ -3,7 +3,7 @@
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import type { ReactNode } from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface Props {
   title: string;
@@ -19,18 +19,29 @@ export default function Accordion(props: Props) {
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   const onClick = () => {
-    setActive((prev) => {
-      const actualValue = !prev;
-      const el = contentRef.current;
+    const el = contentRef.current;
 
-      if (el) {
-        const scrollHeight = el.scrollHeight;
-        setContentHeight(`${actualValue ? scrollHeight : 0}px`);
-      }
+    if (!el) return;
 
-      return actualValue;
-    });
+    if (isActive) {
+      setContentHeight(`${0}px`);
+    } else {
+      setContentHeight(`${el.scrollHeight}px`);
+    }
+
+    setActive((prev) => !prev);
   };
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+
+    if (isActive) {
+      setContentHeight(`${el.scrollHeight}px`);
+    } else {
+      setContentHeight("0px");
+    }
+  }, [isActive, content]);
 
   return (
     <div className={classNames(styles.root, isActive && styles.isActive)}>

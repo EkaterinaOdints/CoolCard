@@ -1,4 +1,4 @@
-export type RadioItem = {
-  id: string;
+export type RadioItem<T extends string = string> = {
+  id: T;
   title: string;
 };

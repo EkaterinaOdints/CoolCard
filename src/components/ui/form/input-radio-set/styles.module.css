@@ -51,6 +51,15 @@
   color: var(--color-error);
 }
 
+.label:has(.input:disabled) {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.input:checked:disabled ~ .mark::before {
+  opacity: 0.6;
+}
+
 @media (max-width: 1440px) {
   .root {
     gap: 32px;
