@@ -86,8 +86,22 @@ export default function Showcase() {
             Наши дизайны
           </Title>
           <div className={styles.sliderNav}>
-            <Button className={classNames(styles.sliderButton, styles.sliderButtonPrev)} tag="button" variant="nav" color="light" aria-label="Назад" ref={sliderButonPrevRef}></Button>
-            <Button className={classNames(styles.sliderButton, styles.sliderButtonNext)} tag="button" variant="nav" color="light" aria-label="Вперед" ref={sliderButonNextRef}></Button>
+            <Button
+              className={classNames(styles.sliderButton, styles.sliderButtonPrev)}
+              tag="button"
+              variant="nav"
+              color="light"
+              aria-label="Назад"
+              ref={sliderButonPrevRef}
+            ></Button>
+            <Button
+              className={classNames(styles.sliderButton, styles.sliderButtonNext)}
+              tag="button"
+              variant="nav"
+              color="light"
+              aria-label="Вперед"
+              ref={sliderButonNextRef}
+            ></Button>
           </div>
           <div className={styles.sliderWrapper}>
             <Swiper
@@ -136,7 +150,15 @@ export default function Showcase() {
                 return (
                   <SwiperSlide className={styles.item} key={id}>
                     <Link className={styles.itemLink} href="#">
-                      <Card className={styles.itemCard} imgSrc={picture.src} imgAlt={picture.alt} imgWidth={506} imgHeight={319} size="medium" style={color.style} />
+                      <Card
+                        className={styles.itemCard}
+                        imgSrc={picture.src}
+                        imgAlt={picture.alt}
+                        imgWidth={506}
+                        imgHeight={319}
+                        size="medium"
+                        style={color.style}
+                      />
                       <div className={styles.itemButton}>
                         <span className={styles.itemButtonIcon}></span>
                         <span className={styles.itemButtonText}>Выбрать этот дизайн</span>

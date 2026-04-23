@@ -73,8 +73,18 @@ export default function Steps() {
                   </div>
                   <div className={styles.itemImage}>
                     <picture>
-                      <source media="(min-width: 769px)" srcSet={imgDesktop.src} width={imgDesktop.width} height={imgDesktop.height} />
-                      <img src={imgMobile.src} width={imgMobile.width} height={imgMobile.height} alt={imgAlt} />
+                      <source
+                        media="(min-width: 769px)"
+                        srcSet={imgDesktop.src}
+                        width={imgDesktop.width}
+                        height={imgDesktop.height}
+                      />
+                      <img
+                        src={imgMobile.src}
+                        width={imgMobile.width}
+                        height={imgMobile.height}
+                        alt={imgAlt}
+                      />
                     </picture>
                   </div>
                 </li>

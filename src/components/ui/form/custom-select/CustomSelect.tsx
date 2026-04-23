@@ -12,7 +12,7 @@ interface Props<T extends string, U extends string> {
   className?: string;
   defaultText: string;
   options: Option<T, U>[];
-  onChange: React.Dispatch<React.SetStateAction<T>>;
+  onChange: (value: T) => void;
   disabled?: boolean;
 }
 
@@ -42,12 +42,22 @@ export default function CustomSelect<T extends string, U extends string>(props: 
   });
 
   return (
-    <div className={classNames(styles.root, className, disabled && styles.disabled)} ref={selectRef}>
-      <button id={id} className={classNames(styles.button, isOpen && styles.isActive)} aria-haspopup="listbox" aria-expanded={isOpen} type="button" onClick={() => setIsOpen((prev) => !prev)}>
+    <div
+      className={classNames(styles.root, className, disabled && styles.disabled)}
+      ref={selectRef}
+    >
+      <button
+        id={id}
+        className={classNames(styles.button, isOpen && styles.isActive)}
+        aria-expanded={isOpen}
+        type="button"
+        disabled={disabled}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
         <span>{selectedItem !== null ? selectedItem.title : defaultText}</span>
       </button>
       {isOpen && (
-        <ul className={styles.list} role="listbox">
+        <ul className={styles.list}>
           {options.map((item) => {
             if (item?.id === selectedItem?.id) return;
 

@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 
 import Image from "next/image";
-import { useEffect, useRef, type RefObject } from "react";
+import { useEffect, useRef } from "react";
 import classNames from "classnames";
 import { type UseFormRegisterReturn } from "react-hook-form";
 
@@ -12,12 +12,12 @@ interface Props {
   title?: string;
   text?: string;
   accept?: string;
-  clearFileField?: (ref: RefObject<HTMLInputElement>) => void;
+  onClear?: () => void;
   registration: UseFormRegisterReturn;
 }
 
 export default function CustomFileInput(props: Props) {
-  const { title, text, accept, clearFileField, registration } = props;
+  const { title, text, accept, onClear, registration } = props;
 
   const { file, updateFilePreview, previewUrl } = useFilePreview();
 
@@ -33,10 +33,9 @@ export default function CustomFileInput(props: Props) {
   const removeFile = () => {
     updateFilePreview(null);
 
-    if (inputRef === null) return;
     if (inputRef.current) inputRef.current.value = "";
 
-    clearFileField?.(inputRef as RefObject<HTMLInputElement>);
+    onClear?.();
   };
 
   useEffect(() => {
@@ -63,12 +62,27 @@ export default function CustomFileInput(props: Props) {
               inputRef.current = el;
             }}
           />
-          {previewUrl && <Image className={styles.image} src={previewUrl} alt="Загруженное фото" width={128} height={79} unoptimized />}
+          {previewUrl && (
+            <Image
+              className={styles.image}
+              src={previewUrl}
+              alt="Загруженное фото"
+              width={128}
+              height={79}
+              unoptimized
+            />
+          )}
           <span className={styles.text}>{file?.name || text}</span>
         </span>
         <span className={styles.title}>{title}</span>
       </label>
-      {file && <CloseButton className={styles.closeButton} ariaLabel="Удалить файл" onClick={() => removeFile()}></CloseButton>}
+      {file && (
+        <CloseButton
+          className={styles.closeButton}
+          ariaLabel="Удалить файл"
+          onClick={() => removeFile()}
+        ></CloseButton>
+      )}
     </div>
   );
 }

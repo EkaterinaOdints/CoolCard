@@ -18,7 +18,13 @@ export default function Footer() {
           </div>
           <NavList className={styles.navList} />
           <div className={styles.buttons}>
-            <Button tag="button" variant="small" color="light" className={styles.button} isModalOpener>
+            <Button
+              tag="button"
+              variant="small"
+              color="light"
+              className={styles.button}
+              isModalOpener
+            >
               Написать
             </Button>
             <SocialList />

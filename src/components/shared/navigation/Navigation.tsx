@@ -69,7 +69,13 @@ export default function Navigation(props: Props) {
 
   return (
     <nav className={classNames(styles.root, { [styles.isMenuOpenned]: isMenuOpen && isMobile })}>
-      <MenuButton className={styles.menuButton} ariaLabel={isMenuOpen ? "Закрыть меню" : "Открыть меню"} ariaExpanded={isMobile ? isMenuOpen : undefined} onButtonClick={onMenuButtonClick} isMenuOpenned={isMenuOpen && isMobile} />
+      <MenuButton
+        className={styles.menuButton}
+        ariaLabel={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+        ariaExpanded={isMobile ? isMenuOpen : undefined}
+        onButtonClick={onMenuButtonClick}
+        isMenuOpenned={isMenuOpen && isMobile}
+      />
       <div className={styles.listWrapper} style={listHeightStyle} ref={listRef}>
         <NavList className={styles.list} onLinkClick={closeMenu} />
       </div>

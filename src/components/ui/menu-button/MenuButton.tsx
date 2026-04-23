@@ -14,7 +14,13 @@ export default function MenuButton(props: Props) {
   const { className, onButtonClick, isMenuOpenned, ariaLabel, ariaExpanded } = props;
 
   return (
-    <button type="button" className={classNames(styles.root, className, { [styles.isMenuOpenned]: isMenuOpenned })} aria-label={ariaLabel} aria-expanded={ariaExpanded} onClick={onButtonClick}>
+    <button
+      type="button"
+      className={classNames(styles.root, className, { [styles.isMenuOpenned]: isMenuOpenned })}
+      aria-label={ariaLabel}
+      aria-expanded={ariaExpanded}
+      onClick={onButtonClick}
+    >
       <span className={styles.icon} aria-hidden="true"></span>
     </button>
   );

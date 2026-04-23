@@ -38,7 +38,12 @@ const Button = (props: Props) => {
   const { setModalOpen } = useFeedbackModal();
   const router = useRouter();
 
-  const classes = classNames(styles.root, props.variant && styles[props.variant], props.color && styles[props.color], props.className);
+  const classes = classNames(
+    styles.root,
+    props.variant && styles[props.variant],
+    props.color && styles[props.color],
+    props.className,
+  );
 
   if (props.tag === "a") {
     return (
@@ -49,7 +54,15 @@ const Button = (props: Props) => {
   }
 
   if (props.tag === "button") {
-    const { children, type = "button", isModalOpener, isBackButton, ref, onClick, ...buttonProps } = props;
+    const {
+      children,
+      type = "button",
+      isModalOpener,
+      isBackButton,
+      ref,
+      onClick,
+      ...buttonProps
+    } = props;
 
     const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
       onClick?.(evt);

@@ -20,7 +20,9 @@ export function FeedbackModalProvider(props: Props) {
   const { children } = props;
   const [isModalOpen, setModalOpen] = useState(false);
 
-  return <FeedbackModalContext value={{ isModalOpen, setModalOpen }}>{children}</FeedbackModalContext>;
+  return (
+    <FeedbackModalContext value={{ isModalOpen, setModalOpen }}>{children}</FeedbackModalContext>
+  );
 }
 
 export function useFeedbackModal() {

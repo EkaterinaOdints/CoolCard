@@ -18,6 +18,7 @@ export default function FeedbackModal() {
 
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors, isValid },
     reset,
@@ -82,7 +83,13 @@ export default function FeedbackModal() {
               Ошибка отправки формы
             </span>
             <p className={styles.text}>Отправка данных завершилась с ошибкой.</p>
-            <Button tag="button" variant="small" color="gradient" className={styles.button} onClick={() => setStatus("form")}>
+            <Button
+              tag="button"
+              variant="small"
+              color="gradient"
+              className={styles.button}
+              onClick={() => setStatus("form")}
+            >
               Вернуться к форме
             </Button>
           </>
@@ -93,16 +100,37 @@ export default function FeedbackModal() {
             <span className={styles.title} id="feedback-modal-title">
               Выберите способ для связи
             </span>
-            <FeedbackForm status={status} isValid={isValid} register={register} handleSubmit={handleSubmit} onSubmit={onSubmit} errors={errors}></FeedbackForm>
+            <FeedbackForm
+              status={status}
+              isValid={isValid}
+              register={register}
+              control={control}
+              handleSubmit={handleSubmit}
+              onSubmit={onSubmit}
+              errors={errors}
+            ></FeedbackForm>
           </>
         );
     }
   };
 
   return (
-    <div className={styles.root} role="dialog" aria-modal="true" aria-labelledby="feedback-modal-title">
-      <div className={classNames(styles.wrapper, status === "error" && styles.error)} ref={modalWrapperRef}>
-        <button className={styles.closeButton} type="button" aria-label="Закрыть окно" onClick={() => setModalOpen(false)}></button>
+    <div
+      className={styles.root}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="feedback-modal-title"
+    >
+      <div
+        className={classNames(styles.wrapper, status === "error" && styles.error)}
+        ref={modalWrapperRef}
+      >
+        <button
+          className={styles.closeButton}
+          type="button"
+          aria-label="Закрыть окно"
+          onClick={() => setModalOpen(false)}
+        ></button>
         {renderModalInner()}
       </div>
     </div>

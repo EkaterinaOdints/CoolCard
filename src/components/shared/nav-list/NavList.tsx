@@ -40,7 +40,12 @@ export default function NavList(props: Props) {
     <div className={className}>
       {links.map((link) => {
         return (
-          <Link href={link.src} key={link.id} aria-current={currentPath === link.src ? "page" : undefined} onClick={() => onLinkClick?.()}>
+          <Link
+            href={link.src}
+            key={link.id}
+            aria-current={currentPath === link.src ? "page" : undefined}
+            onClick={() => onLinkClick?.()}
+          >
             {link.text}
           </Link>
         );

@@ -12,8 +12,17 @@ export default function Feedback() {
             <Title className={styles.title} tag="h2" size="small">
               Остались вопросы?
             </Title>
-            <p className={styles.description}>Мы готовы на них ответить и помочь вам создать идеальную карту, которая будет соответствовать вашим предпочтениям</p>
-            <Button className={styles.button} tag="button" variant="big" color="gradient" isModalOpener>
+            <p className={styles.description}>
+              Мы готовы на них ответить и помочь вам создать идеальную карту, которая будет
+              соответствовать вашим предпочтениям
+            </p>
+            <Button
+              className={styles.button}
+              tag="button"
+              variant="big"
+              color="gradient"
+              isModalOpener
+            >
               Задать вопрос
             </Button>
           </div>
