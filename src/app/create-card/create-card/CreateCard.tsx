@@ -142,8 +142,8 @@ export default function CreateCard() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className={styles.settings}>
                 <Title tag="h2">Настройки</Title>
-                <Accordion title="Дизайн" content={DesignContent(register)} />
-                <Accordion title="Лицевая сторона" content={FrontSideContent()} />
+                <Accordion type="form" title="Дизайн" content={DesignContent(register)} />
+                <Accordion type="form" title="Лицевая сторона" content={FrontSideContent()} />
               </div>
               <div className={styles.result}></div>
               <div className={styles.payment}>

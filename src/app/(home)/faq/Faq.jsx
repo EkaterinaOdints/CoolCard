@@ -32,7 +32,7 @@ export default function Faq() {
           </Title>
           <div className={styles.accordionWrapper}>
             {faq.map(({ id, title, content }) => {
-              return <Accordion title={title} content={<p>{content}</p>} key={id} />;
+              return <Accordion title={title} type="text" content={<p>{content}</p>} key={id} />;
             })}
           </div>
           <Button className={styles.button} tag="a" src="#" variant="big" color="light">

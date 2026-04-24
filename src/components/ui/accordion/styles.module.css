@@ -3,6 +3,19 @@
   border-bottom: 1px solid var(--color-default-grey);
 }
 
+.root.text .content {
+  margin-right: 104px;
+}
+
+.root.form {
+  padding-top: 16px;
+  padding-bottom: 14px;
+}
+
+.root.form .content {
+  padding-top: 16px;
+}
+
 .button {
   display: flex;
   justify-content: space-between;
@@ -63,7 +76,6 @@
   transition: max-height 0.4s;
   font-size: var(--fs-small);
   color: var(--color-medium-grey);
-  /* margin-right: 104px; */
 }
 
 .content > p {

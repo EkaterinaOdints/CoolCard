@@ -8,10 +8,12 @@ import { useState, useRef, useEffect } from "react";
 interface Props {
   title: string;
   content: ReactNode;
+  className?: string;
+  type?: "text" | "form";
 }
 
 export default function Accordion(props: Props) {
-  const { title, content } = props;
+  const { title, content, className, type } = props;
 
   const [isActive, setActive] = useState(false);
   const [contentHeight, setContentHeight] = useState("0px");
@@ -44,7 +46,14 @@ export default function Accordion(props: Props) {
   }, [isActive, content]);
 
   return (
-    <div className={classNames(styles.root, isActive && styles.isActive)}>
+    <div
+      className={classNames(
+        styles.root,
+        className,
+        isActive && styles.isActive,
+        type && styles[type],
+      )}
+    >
       <button className={styles.button} type="button" onClick={onClick}>
         <span className={styles.buttonText}>{title}</span>
         <span className={styles.buttonIcon}></span>
