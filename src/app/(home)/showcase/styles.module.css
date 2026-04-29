@@ -17,6 +17,10 @@
   gap: 20px;
 }
 
+.title {
+  margin: 0;
+}
+
 .sliderButton {
   background-color: transparent;
 }

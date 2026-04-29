@@ -65,6 +65,11 @@ img {
   height: auto;
 }
 
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 body {
   position: relative;
   display: flex;

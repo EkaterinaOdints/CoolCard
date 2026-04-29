@@ -204,4 +204,12 @@ const designCategories: designCategoryItem[] = [
   },
 ] as const;
 
-export { colors, pictures, designCategories, type DesignCategory, type DesignCategoryTitle };
+const fonts = [
+  { id: "nunito", title: "Nunito (по умолчанию)", src: null },
+  { id: "roboto", title: "Roboto", src: "Roboto-Regular.woff2" },
+  { id: "inter", title: "Inter", src: "Inter-Regular.woff2" },
+  { id: "opensans", title: "Open Sans", src: "OpenSans-Regular.woff2" },
+  { id: "montserrat", title: "Montserrat", src: "Montserrat-Regular.woff2" },
+];
+
+export { colors, pictures, designCategories, fonts, type DesignCategory, type DesignCategoryTitle };

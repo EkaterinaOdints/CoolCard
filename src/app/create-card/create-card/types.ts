@@ -7,4 +7,8 @@ export interface FormValues {
   backSidePicture?: FileList;
   name: string;
   nameSize: number;
+  nameFont: string;
+  text: string;
+  textSize: number;
+  textFont?: string;
 }

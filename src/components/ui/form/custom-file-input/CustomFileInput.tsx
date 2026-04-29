@@ -13,11 +13,13 @@ interface Props {
   text?: string;
   accept?: string;
   onClear?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   registration: UseFormRegisterReturn;
 }
 
 export default function CustomFileInput(props: Props) {
-  const { title, text, accept, onClear, registration } = props;
+  const { title, text, accept, onClear, onFocus, onBlur, registration } = props;
 
   const { file, updateFilePreview, previewUrl } = useFilePreview();
 
@@ -46,7 +48,12 @@ export default function CustomFileInput(props: Props) {
 
   return (
     <div className={classNames(styles.root, file && styles.isFileUploaded)}>
-      <label className={styles.label}>
+      <label
+        className={styles.label}
+        tabIndex={0}
+        onFocus={() => onFocus?.()}
+        onBlur={() => onBlur?.()}
+      >
         <span className={styles.wrapper}>
           <input
             className={styles.input}

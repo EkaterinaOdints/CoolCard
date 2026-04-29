@@ -31,6 +31,7 @@ interface Props {
   unregister: UseFormUnregister<FormValues>;
   setValue: UseFormSetValue<FormValues>;
   onSubmitAvailabilityChange?: (value: boolean) => void;
+  setResultMessage: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export const designVariants = [
@@ -52,7 +53,15 @@ export const fileInputs = [
 ] as const satisfies FileInputs;
 
 export default function DesignVariants(props: Props) {
-  const { control, errors, register, unregister, setValue, onSubmitAvailabilityChange } = props;
+  const {
+    control,
+    errors,
+    register,
+    unregister,
+    setValue,
+    onSubmitAvailabilityChange,
+    setResultMessage,
+  } = props;
 
   const [designOption, setDesignOption] = useState<DesignVariant>("templates");
   const [designCategory, setDesignCategory] = useState<DesignCategory>("all");
@@ -70,6 +79,7 @@ export default function DesignVariants(props: Props) {
       fileInputs.forEach(({ id: fieldId }) => {
         unregister(fieldId);
       });
+      setResultMessage(null);
     }
 
     if (id === "individual") {
@@ -97,11 +107,9 @@ export default function DesignVariants(props: Props) {
       />
       {designOption === "templates" && (
         <div className={styles.content}>
-          <label className={styles.label} htmlFor="category-design-select">
-            Категория
-          </label>
           <CustomSelect
             id="category-design-select"
+            label="Категория"
             className={styles.select}
             defaultText="Выберите категорию"
             options={designCategories}
@@ -162,6 +170,8 @@ export default function DesignVariants(props: Props) {
                       shouldValidate: true,
                     });
                   }}
+                  onFocus={() => setResultMessage("Разработка дизайна 1-2 рабочих дня")}
+                  onBlur={() => setResultMessage(null)}
                 />
               );
             })}

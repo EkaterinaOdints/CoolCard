@@ -55,7 +55,7 @@ export default function Steps() {
     <section className={styles.root}>
       <Container>
         <div className={styles.wrapper}>
-          <Title tag="h2" size="big">
+          <Title className={styles.title} tag="h2" size="big">
             За 3 простых шага вы сможете получить карту
           </Title>
           <ul className={styles.list}>

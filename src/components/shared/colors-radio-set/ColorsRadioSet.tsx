@@ -13,7 +13,7 @@ export default function ColorsRadioSet(props: Props) {
 
   return (
     <div className={styles.root}>
-      <label className={classNames(styles.label, styles.labelNone)}>
+      <label className={classNames(styles.label, styles.labelNone)} tabIndex={0}>
         <input
           className={styles.input}
           type="radio"
@@ -24,7 +24,7 @@ export default function ColorsRadioSet(props: Props) {
       </label>
       {colors.map(({ name, style }) => {
         return (
-          <label className={styles.label} style={{ background: style }} key={name}>
+          <label className={styles.label} style={{ background: style }} key={name} tabIndex={0}>
             <input
               className={styles.input}
               type="radio"

@@ -14,8 +14,20 @@
   gap: 65px;
 }
 
-.settings {
-  width: 350px;
+.title {
+  margin: 0;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 350px 1fr 350px;
+  justify-items: center;
+  gap: 45px;
+}
+
+.settingsTitle {
+  font-size: 20px;
+  margin: 0 0 25px;
 }
 
 .fieldsetWrapper {
@@ -24,19 +36,156 @@
   gap: 30px;
 }
 
-.fieldset {
-  min-inline-size: 0;
-  margin: 0;
-  padding: 0;
-  border: none;
+.resultWrapper {
+  position: relative;
+  width: min-content;
+  overflow: hidden;
 }
 
-.fieldsetName {
-  margin-bottom: 10px;
-  padding: 0;
-  color: var(--color-default-dark);
+.resultMessage {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
 }
 
-.img {
-  filter: invert(1);
+.resultMessageText {
+  max-width: 220px;
+  text-align: center;
+  color: var(--color-default-light);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.resultMessageIcon {
+  aspect-ratio: 1 / 1;
+  width: 40px;
+  color: var(--color-accent-main);
+}
+
+.resultNameWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  padding: 20px 50px;
+  color: var(--color-default-light);
+}
+
+.resultTextWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 100%;
+  padding: 20px 50px;
+  color: var(--color-default-light);
+}
+
+.resultName {
+  display: block;
+}
+
+.resultText {
+  display: block;
+}
+
+@media (max-width: 1440px) {
+  .root {
+    padding: 70px 0;
+  }
+
+  .wrapper {
+    gap: 50px;
+  }
+
+  .header {
+    gap: 50px;
+  }
+
+  .settingsTitle {
+    margin-bottom: 20px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
+
+  .result {
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 1280px) {
+  .root {
+    padding: 60px 0;
+  }
+
+  .wrapper {
+    gap: 30px;
+  }
+
+  .header {
+    gap: 30px;
+  }
+
+  .settingsTitle {
+    margin-bottom: 10px;
+  }
+
+  .form {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .root {
+    padding: 50px 0;
+  }
+
+  .settingsTitle {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    padding: 40px 0;
+  }
+
+  .wrapper {
+    gap: 20px;
+  }
+
+  .header {
+    gap: 20px;
+  }
+
+  .settingsTitle {
+    margin-bottom: 0;
+  }
+
+  .form {
+    gap: 25px;
+  }
+
+  .resultWrapper {
+    margin: 0 auto;
+  }
+
+  .resultNameWrapper,
+  .resultTextWrapper {
+    padding: 13px 35px;
+  }
+
+  .resultName,
+  .resultText {
+    font-size: 0.7em;
+  }
 }

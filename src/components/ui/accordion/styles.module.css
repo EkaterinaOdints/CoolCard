@@ -8,12 +8,32 @@
 }
 
 .root.form {
-  padding-top: 16px;
-  padding-bottom: 14px;
+  padding-bottom: 0;
+  font-size: 20px;
+}
+
+.root.form .buttonIcon {
+  width: 40px;
+}
+
+.root.form .button {
+  padding: 5px 0;
+}
+
+.root.form .buttonIcon::before {
+  width: 10px;
+}
+
+.root.form:not(.isActive) .buttonIcon::after {
+  height: 10px;
 }
 
 .root.form .content {
-  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.root.form .buttonText {
+  font-weight: 700;
 }
 
 .button {
@@ -71,11 +91,20 @@
   transition: height 0.4s;
 }
 
-.content {
+.contentWrapper {
   overflow: hidden;
   transition: max-height 0.4s;
+}
+
+.contentWrapper.isOverflowVisible {
+  overflow: visible;
+}
+
+.content {
   font-size: var(--fs-small);
   color: var(--color-medium-grey);
+  padding-inline: 8px;
+  margin-inline: -8px;
 }
 
 .content > p {
@@ -84,10 +113,6 @@
 
 .isActive .buttonIcon::after {
   height: 0;
-}
-
-.isActive .content {
-  overflow: visible;
 }
 
 @media (max-width: 1440px) {
@@ -103,8 +128,12 @@
     width: 60px;
   }
 
-  .content {
+  .root.text .content {
     margin-right: 90px;
+  }
+
+  .root.form .content {
+    padding-top: 10px;
   }
 }
 
@@ -129,7 +158,7 @@
     height: 12px;
   }
 
-  .content {
+  .root.text .content {
     margin-right: 80px;
   }
 }
@@ -137,6 +166,22 @@
 @media (max-width: 768px) {
   .root {
     padding-bottom: 10px;
+  }
+
+  .root.form {
+    font-size: 18px;
+  }
+
+  .root.form .buttonIcon {
+    width: 30px;
+  }
+
+  .root.form .buttonIcon::before {
+    width: 8px;
+  }
+
+  .root.form:not(.isActive) .buttonIcon::after {
+    height: 8px;
   }
 
   .button {
@@ -155,7 +200,7 @@
     height: 10px;
   }
 
-  .content {
+  .root.text .content {
     margin-right: 60px;
   }
 }

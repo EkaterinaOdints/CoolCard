@@ -82,7 +82,7 @@ export default function Showcase() {
     <section className={styles.root}>
       <Container>
         <div className={styles.wrapper}>
-          <Title tag="h2" size="small">
+          <Title className={styles.title} tag="h2" size="small">
             Наши дизайны
           </Title>
           <div className={styles.sliderNav}>

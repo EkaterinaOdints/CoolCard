@@ -14,5 +14,5 @@ export default function Title(props: Props) {
 
   const Tag = tag;
 
-  return <Tag className={classNames(styles.root, className, size && styles[size])}>{children}</Tag>;
+  return <Tag className={classNames(styles.root, size && styles[size], className)}>{children}</Tag>;
 }

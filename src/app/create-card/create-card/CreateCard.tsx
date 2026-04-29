@@ -3,21 +3,28 @@
 import styles from "./styles.module.css";
 import { type FormValues } from "./types";
 
-import { useState } from "react";
-import { Controller, useForm, type SubmitHandler, type UseFormRegister } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { useForm, useWatch, type SubmitHandler } from "react-hook-form";
 
 import Container from "@/src/components/layout/container/Container";
 import Accordion from "@/src/components/ui/accordion/Accordion";
-import ColorsRadioSet from "@/src/components/shared/colors-radio-set/ColorsRadioSet";
-import DesignVariants from "@/src/components/shared/design-variants/DesignVariants";
+
 import Button from "@/src/components/ui/button/Button";
-import InputRadioSet from "@/src/components/ui/form/input-radio-set/InputRadioSet";
-import InputText from "@/src/components/ui/form/input-text/InputText";
-import CustomRange from "@/src/components/ui/form/custom-range/CustomRange";
+
 import Title from "@/src/components/ui/title/Title";
+import Card from "@/src/components/ui/card/Card";
+import DesignContentFieldset from "@/src/components/shared/design-content-fieldset/DesignContentFieldset";
+import FrontSideContentFieldset from "@/src/components/shared/front-side-content-fieldset/FrontSideContentFieldset";
+
+import { colors, pictures, fonts } from "@/src/data/data";
+import { loadFontFace } from "@/src/utils/fonts";
+
+type ActiveAccordion = "design" | "frontSide" | null;
 
 export default function CreateCard() {
   const [isDesignSubmitAllowed, setIsDesignSubmitAllowed] = useState(true);
+  const [resultMessage, setResultMessage] = useState<string | null>(null);
+  const [activeAccordion, setActiveAccordion] = useState<ActiveAccordion>(null);
 
   const {
     control,
@@ -32,96 +39,72 @@ export default function CreateCard() {
       nfc: "yes",
       color: "none",
       design: "none",
-      urgent: false,
-      name: "",
-      nameSize: 12,
       frontSidePicture: undefined,
       backSidePicture: undefined,
+      urgent: false,
+      name: "",
+      nameSize: 20,
+      nameFont: undefined,
+      text: "",
+      textSize: 20,
+      textFont: undefined,
     },
     shouldUnregister: true,
   });
 
+  const colorValue = useWatch({
+    control,
+    name: "color",
+  });
+
+  const designValue = useWatch({
+    control,
+    name: "design",
+  });
+
+  const nameValue = useWatch({
+    control,
+    name: "name",
+  });
+
+  const nameSize = useWatch({
+    control,
+    name: "nameSize",
+  });
+
+  const nameFont = useWatch({
+    control,
+    name: "nameFont",
+  });
+
+  const textValue = useWatch({
+    control,
+    name: "text",
+  });
+
+  const textSize = useWatch({
+    control,
+    name: "textSize",
+  });
+
+  const textFont = useWatch({
+    control,
+    name: "textFont",
+  });
+
+  const selectedPicture = pictures.find((picture) => picture.name === designValue);
+  const selectedColor = colors.find((color) => color.name === colorValue);
+  const selectedNameFont = fonts.find((font) => font.id === nameFont);
+  const selectedTextFont = fonts.find((font) => font.id === textFont);
+
+  useEffect(() => {
+    [selectedNameFont, selectedTextFont].forEach((font) => {
+      if (font?.src) loadFontFace(font.title, `/fonts/${font.src}`);
+    });
+  }, [selectedNameFont, selectedTextFont]);
+
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log(data);
-  };
-
-  const DesignContent = (register: UseFormRegister<FormValues>) => {
-    return (
-      <div className={styles.fieldsetWrapper}>
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.fieldsetName}>NFC</legend>
-          <InputRadioSet
-            items={[
-              { id: "yes", title: "Да" },
-              { id: "no", title: "Нет" },
-            ]}
-            registration={register("nfc", {
-              required: "Обязательное поле",
-            })}
-            error={errors.nfc}
-          />
-        </fieldset>
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.fieldsetName}>Цвет</legend>
-          <ColorsRadioSet register={register} />
-        </fieldset>
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.fieldsetName}>Дизайн</legend>
-          <DesignVariants
-            control={control}
-            register={register}
-            unregister={unregister}
-            setValue={setValue}
-            errors={errors}
-            onSubmitAvailabilityChange={setIsDesignSubmitAllowed}
-          />
-        </fieldset>
-      </div>
-    );
-  };
-
-  const FrontSideContent = () => {
-    return (
-      <div className={styles.fieldsetWrapper}>
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.fieldsetName}>Имя</legend>
-          <Controller
-            name="name"
-            control={control}
-            rules={{
-              required: "Обязательное поле",
-            }}
-            render={({ field }) => (
-              <InputText
-                type="text"
-                name={field.name}
-                value={field.value}
-                onChange={field.onChange}
-                onBlur={field.onBlur}
-                inputRef={field.ref}
-                error={errors.name}
-                inputProps={{ placeholder: "Введите имя" }}
-              />
-            )}
-          />
-          <Controller
-            name="nameSize"
-            control={control}
-            render={({ field }) => (
-              <CustomRange
-                title="Размер"
-                value={field.value}
-                onChange={field.onChange}
-                name={field.name}
-                onBlur={field.onBlur}
-                inputRef={field.ref}
-                inputProps={{ min: 12, max: 30, step: 2 }}
-              />
-            )}
-          />
-        </fieldset>
-      </div>
-    );
   };
 
   return (
@@ -136,16 +119,83 @@ export default function CreateCard() {
               aria-label="Назад"
               isBackButton
             ></Button>
-            <Title tag="h1">Создание карты</Title>
+            <Title className={styles.title} tag="h1" size="small">
+              Создание карты
+            </Title>
           </div>
           <div className={styles.body}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <div className={styles.settings}>
-                <Title tag="h2">Настройки</Title>
-                <Accordion type="form" title="Дизайн" content={DesignContent(register)} />
-                <Accordion type="form" title="Лицевая сторона" content={FrontSideContent()} />
+                <Title className={styles.settingsTitle} tag="h2">
+                  Настройки
+                </Title>
+                <Accordion
+                  type="form"
+                  title="Дизайн"
+                  isActive={activeAccordion === "design"}
+                  onToggle={() =>
+                    setActiveAccordion((current) => (current === "design" ? null : "design"))
+                  }
+                  content={
+                    <DesignContentFieldset
+                      register={register}
+                      unregister={unregister}
+                      setValue={setValue}
+                      control={control}
+                      errors={errors}
+                      setIsDesignSubmitAllowed={setIsDesignSubmitAllowed}
+                      setResultMessage={setResultMessage}
+                    />
+                  }
+                />
+                <Accordion
+                  type="form"
+                  title="Лицевая сторона"
+                  isActive={activeAccordion === "frontSide"}
+                  onToggle={() =>
+                    setActiveAccordion((current) => (current === "frontSide" ? null : "frontSide"))
+                  }
+                  content={<FrontSideContentFieldset control={control} errors={errors} />}
+                />
               </div>
-              <div className={styles.result}></div>
+              <div className={styles.result}>
+                <div className={styles.resultWrapper}>
+                  <Card
+                    imgSrc={selectedPicture?.src}
+                    imgAlt={selectedPicture?.alt}
+                    imgWidth={506}
+                    imgHeight={319}
+                    size="big"
+                    style={selectedColor?.style || "transparent"}
+                  />
+                  {resultMessage !== null && (
+                    <div className={styles.resultMessage}>
+                      <div className={styles.resultMessageIcon}>
+                        <svg width="40" height="40" aria-hidden="true">
+                          <use href="/sprite.svg#services"></use>
+                        </svg>
+                      </div>
+                      <span className={styles.resultMessageText}>{resultMessage}</span>
+                    </div>
+                  )}
+                  {nameValue.length > 0 && (
+                    <div
+                      className={styles.resultNameWrapper}
+                      style={{ fontSize: nameSize + "px", fontFamily: selectedNameFont?.title }}
+                    >
+                      <span className={styles.resultName}>{nameValue}</span>
+                    </div>
+                  )}
+                  {
+                    <div
+                      className={styles.resultTextWrapper}
+                      style={{ fontSize: textSize + "px", fontFamily: selectedTextFont?.title }}
+                    >
+                      <span className={styles.resultText}>{textValue}</span>
+                    </div>
+                  }
+                </div>
+              </div>
               <div className={styles.payment}>
                 <Button
                   tag="button"

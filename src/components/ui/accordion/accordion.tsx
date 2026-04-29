@@ -10,47 +10,53 @@ interface Props {
   content: ReactNode;
   className?: string;
   type?: "text" | "form";
+  isActive?: boolean;
+  onToggle?: () => void;
 }
 
 export default function Accordion(props: Props) {
-  const { title, content, className, type } = props;
+  const { title, content, className, type, isActive, onToggle } = props;
 
-  const [isActive, setActive] = useState(false);
-  const [contentHeight, setContentHeight] = useState("0px");
+  const [innerIsActive, setInnerIsActive] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [isOverflowVisible, setOverflowVisible] = useState(false);
 
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  const innerContentRef = useRef<HTMLDivElement | null>(null);
+
+  const isControlled = isActive !== undefined;
+  const currentIsActive = isControlled ? isActive : innerIsActive;
+  const height = currentIsActive ? `${contentHeight}px` : "0px";
+  const shouldShowOverflow = currentIsActive && isOverflowVisible;
 
   const onClick = () => {
-    const el = contentRef.current;
+    setOverflowVisible(false);
 
-    if (!el) return;
-
-    if (isActive) {
-      setContentHeight(`${0}px`);
+    if (isControlled) {
+      onToggle?.();
     } else {
-      setContentHeight(`${el.scrollHeight}px`);
+      setInnerIsActive((prev) => !prev);
     }
-
-    setActive((prev) => !prev);
   };
 
   useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
+    const innerEl = innerContentRef.current;
 
-    if (isActive) {
-      setContentHeight(`${el.scrollHeight}px`);
-    } else {
-      setContentHeight("0px");
-    }
-  }, [isActive, content]);
+    if (!innerEl || !currentIsActive) return;
+
+    setContentHeight(innerEl.scrollHeight);
+
+    const observer = new ResizeObserver(() => setContentHeight(innerEl.scrollHeight));
+    observer.observe(innerEl);
+
+    return () => observer.disconnect();
+  }, [currentIsActive]);
 
   return (
     <div
       className={classNames(
         styles.root,
         className,
-        isActive && styles.isActive,
+        currentIsActive && styles.isActive,
         type && styles[type],
       )}
     >
@@ -58,8 +64,24 @@ export default function Accordion(props: Props) {
         <span className={styles.buttonText}>{title}</span>
         <span className={styles.buttonIcon}></span>
       </button>
-      <div className={styles.content} ref={contentRef} style={{ maxHeight: contentHeight }}>
-        {content}
+      <div
+        className={classNames(
+          styles.contentWrapper,
+          shouldShowOverflow && styles.isOverflowVisible,
+        )}
+        style={{ maxHeight: height }}
+        onTransitionStart={(evt) => {
+          if (evt.target !== evt.currentTarget) return;
+          if (evt.propertyName === "max-height") setOverflowVisible(false);
+        }}
+        onTransitionEnd={(evt) => {
+          if (evt.target !== evt.currentTarget) return;
+          if (evt.propertyName === "max-height") setOverflowVisible(currentIsActive);
+        }}
+      >
+        <div className={styles.content} ref={innerContentRef}>
+          {content}
+        </div>
       </div>
     </div>
   );

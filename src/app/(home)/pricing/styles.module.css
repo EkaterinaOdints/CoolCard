@@ -8,6 +8,10 @@
   gap: 80px;
 }
 
+.title {
+  margin: 0;
+}
+
 .titleIcon {
   display: inline-block;
   aspect-ratio: 1 / 1;
@@ -16,7 +20,6 @@
 }
 
 .titleIcon svg {
-  display: block;
   width: 100%;
   height: 100%;
 }

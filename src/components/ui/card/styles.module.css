@@ -95,3 +95,19 @@
     width: 35px;
   }
 }
+
+@media (max-width: 576px) {
+  .root {
+    border-radius: 10px;
+  }
+
+  .big {
+    width: 350px;
+  }
+
+  .big::after {
+    left: 35px;
+    top: 67px;
+    width: 47px;
+  }
+}

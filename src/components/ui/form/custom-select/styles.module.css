@@ -1,12 +1,36 @@
 .root {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   font-size: 14px;
   line-height: 1.4;
 }
 
-.root.disabled {
+.root.error .button::after {
+  background-color: var(--color-error);
+}
+
+.root.error .title {
+  color: var(--color-error);
+}
+
+.root.error .button {
+  outline: 1px solid var(--color-error);
+}
+
+.root.error .button.isActive {
+  outline: none;
+}
+
+.label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper.disabled {
   pointer-events: none;
   opacity: 0.6;
 }
@@ -88,4 +112,12 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.errorText {
+  display: block;
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-error);
 }
