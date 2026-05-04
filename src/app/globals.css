@@ -1,6 +1,7 @@
 /* @import "tailwindcss"; */
 
 :root {
+  --color-default-black: #000000;
   --color-default-dark: #37193a;
   --color-default-light: #ffffff;
   --color-default-grey: #c0bac5;
@@ -20,6 +21,7 @@
 
   --linear-gradient-light: #fbe8ff, #eee7ff 57%, #d1e3ff;
   --linear-gradient-dark: #fae0ff, #dccdff, #c1d9ff;
+  --linear-gradient-grey: #c0bac5, #ada0b8;
 
   --radial-gradient-cold: #bfd8ff, transparent;
   --radial-gradient-warm: #ffa7e1, transparent;

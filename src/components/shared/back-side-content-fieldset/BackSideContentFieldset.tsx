@@ -2,10 +2,10 @@ import { type FormValues } from "@/src/app/create-card/create-card/types";
 
 import { Controller, type Control, type FieldErrors } from "react-hook-form";
 
+import Fieldset from "@/src/components/ui/form/fieldset/Fieldset";
 import InputText from "@/src/components/ui/form/input-text/InputText";
 import CustomRange from "@/src/components/ui/form/custom-range/CustomRange";
 import CustomSelect from "@/src/components/ui/form/custom-select/CustomSelect";
-import Fieldset from "@/src/components/ui/form/fieldset/Fieldset";
 
 import { fonts } from "@/src/data/data";
 
@@ -14,68 +14,86 @@ interface Props {
   errors: FieldErrors<FormValues>;
 }
 
-export default function FrontSideContentFieldset(props: Props) {
+export default function BackSideContentFieldset(props: Props) {
   const { control, errors } = props;
+
+  const formatCardNumber = (value: string) => {
+    return value.replace(/(.{4})/g, "$1 ").trim();
+  };
+
+  const formatCardPeriod = (value: string) => {
+    return value.replace(/(\d{2})(\d{0,2})/, (_, m, y) => {
+      return y ? `${m}/${y}` : m;
+    });
+  };
 
   return (
     <>
-      <Fieldset legend="Имя">
+      <Fieldset legend="Информация">
         <Controller
-          name="name"
+          name="cardNumber"
           control={control}
           rules={{
             required: "Обязательное поле",
+            minLength: {
+              value: 16,
+              message: "Номер карты должен состоять из 16 цифр",
+            },
           }}
           render={({ field }) => (
             <InputText
+              title="Номер карты"
               type="text"
               name={field.name}
-              value={field.value}
-              onChange={(value) => field.onChange(value.replace(/[^a-zA-Zа-яА-ЯёЁ -]/g, ""))}
+              value={formatCardNumber(field.value)}
+              onChange={(value) => {
+                field.onChange(value.replace(/\D/g, "").slice(0, 16));
+              }}
               onBlur={field.onBlur}
               inputRef={field.ref}
-              error={errors.name}
-              inputProps={{ placeholder: "Введите имя", maxLength: 50, autoComplete: "on" }}
+              error={errors.cardNumber}
+              inputProps={{
+                placeholder: "Введите номер карты",
+                maxLength: 19,
+                autoComplete: "on",
+              }}
             />
           )}
         />
         <Controller
-          name="nameSize"
-          control={control}
-          render={({ field }) => (
-            <CustomRange
-              title="Размер"
-              value={field.value}
-              onChange={field.onChange}
-              name={field.name}
-              onBlur={field.onBlur}
-              inputRef={field.ref}
-              inputProps={{ min: 12, max: 30, step: 2 }}
-            />
-          )}
-        />
-        <Controller
-          name="nameFont"
+          name="cardPeriod"
           control={control}
           rules={{
             required: "Обязательное поле",
+            minLength: {
+              value: 4,
+              message: "Срок действия карты должен состоять из 4 цифр",
+            },
           }}
           render={({ field }) => (
-            <CustomSelect
-              label="Шрифт"
-              id="name-font-select"
-              defaultText="Выберите шрифт"
-              value={field.value}
-              options={fonts}
-              onChange={field.onChange}
-              error={errors.nameFont}
+            <InputText
+              title="Срок действия карты"
+              type="text"
+              name={field.name}
+              value={formatCardPeriod(field.value)}
+              onChange={(value) => {
+                field.onChange(value.replace(/\D/g, "").slice(0, 4));
+              }}
+              onBlur={field.onBlur}
+              inputRef={field.ref}
+              error={errors.cardPeriod}
+              inputProps={{
+                placeholder: "Введите срок действия карты",
+                maxLength: 5,
+                autoComplete: "on",
+              }}
             />
           )}
         />
       </Fieldset>
       <Fieldset legend="Текст">
         <Controller
-          name="frontSideText"
+          name="backSideText"
           control={control}
           render={({ field }) => (
             <InputText
@@ -90,7 +108,7 @@ export default function FrontSideContentFieldset(props: Props) {
           )}
         />
         <Controller
-          name="frontSideTextSize"
+          name="backSideTextSize"
           control={control}
           render={({ field }) => (
             <CustomRange
@@ -105,12 +123,12 @@ export default function FrontSideContentFieldset(props: Props) {
           )}
         />
         <Controller
-          name="frontSideTextFont"
+          name="backSideTextFont"
           control={control}
           render={({ field }) => (
             <CustomSelect
               label="Шрифт"
-              id="front-text-font-select"
+              id="back-text-font-select"
               defaultText="Выберите шрифт"
               value={field.value}
               options={fonts}

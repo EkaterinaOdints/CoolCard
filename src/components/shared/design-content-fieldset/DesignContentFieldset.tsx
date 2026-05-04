@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 import type { FormValues } from "@/src/app/create-card/create-card/types";
 
 import InputRadioSet from "@/src/components/ui/form/input-radio-set/InputRadioSet";
@@ -37,7 +35,7 @@ export default function DesignContentFieldset(props: Props) {
   } = props;
 
   return (
-    <div className={styles.root}>
+    <>
       <Fieldset legend="NFC">
         <InputRadioSet
           items={[
@@ -64,6 +62,6 @@ export default function DesignContentFieldset(props: Props) {
           setResultMessage={setResultMessage}
         />
       </Fieldset>
-    </div>
+    </>
   );
 }

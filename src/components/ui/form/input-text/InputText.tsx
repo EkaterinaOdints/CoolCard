@@ -5,6 +5,7 @@ import { type InputHTMLAttributes } from "react";
 
 interface Props {
   className?: string;
+  title?: string;
   type: string;
   error?: FieldError;
   value: string;
@@ -19,10 +20,12 @@ interface Props {
 }
 
 export default function InputText(props: Props) {
-  const { error, className, type, value, onChange, name, onBlur, inputRef, inputProps } = props;
+  const { error, className, title, type, value, onChange, name, onBlur, inputRef, inputProps } =
+    props;
 
   return (
     <label className={classNames(styles.root, className)}>
+      {title && <span className={styles.title}>{title}</span>}
       <input
         {...inputProps}
         className={classNames(styles.input, error && styles.error, className)}

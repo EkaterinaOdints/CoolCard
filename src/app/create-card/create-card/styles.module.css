@@ -30,7 +30,7 @@
   margin: 0 0 25px;
 }
 
-.fieldsetWrapper {
+.accordionContent {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -69,30 +69,36 @@
   color: var(--color-accent-main);
 }
 
-.resultNameWrapper {
+.resultNameWrapper,
+.resultFrontSideTextWrapper,
+.resultBackSideTextWrapper {
   position: absolute;
+  max-width: 100%;
+  color: var(--color-default-light);
+}
+
+.resultNameWrapper {
   top: 0;
   left: 0;
-  max-width: 100%;
   padding: 20px 50px;
-  color: var(--color-default-light);
 }
 
-.resultTextWrapper {
-  position: absolute;
+.resultFrontSideTextWrapper {
   bottom: 0;
   right: 0;
-  max-width: 100%;
   padding: 20px 50px;
-  color: var(--color-default-light);
 }
 
-.resultName {
-  display: block;
+.resultBackSideTextWrapper {
+  bottom: 0;
+  left: 0;
+  padding: 20px 26px;
 }
 
+.resultName,
 .resultText {
   display: block;
+  overflow: hidden;
 }
 
 @media (max-width: 1440px) {
@@ -180,8 +186,12 @@
   }
 
   .resultNameWrapper,
-  .resultTextWrapper {
+  .resultFrontSideTextWrapper {
     padding: 13px 35px;
+  }
+
+  .resultBackSideTextWrapper {
+    padding: 13px 17.5px;
   }
 
   .resultName,

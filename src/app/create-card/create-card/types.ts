@@ -8,7 +8,12 @@ export interface FormValues {
   name: string;
   nameSize: number;
   nameFont: string;
-  text: string;
-  textSize: number;
-  textFont?: string;
+  frontSideText: string;
+  frontSideTextSize: number;
+  frontSideTextFont?: string;
+  cardNumber: string;
+  cardPeriod: string;
+  backSideText: string;
+  backSideTextSize: number;
+  backSideTextFont?: string;
 }
