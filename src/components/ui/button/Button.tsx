@@ -2,35 +2,12 @@
 
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { type ReactNode, type MouseEvent } from "react";
+import { type MouseEvent } from "react";
 import Link from "next/link";
 import { useFeedbackModal } from "@/src/providers/FeedbackModalProvider";
 import { useRouter } from "next/navigation";
 
-type CommonProps = {
-  children?: ReactNode;
-  className?: string;
-  variant?: "small" | "big" | "nav";
-  color?: "accent" | "light" | "gradient";
-};
-
-type LinkProps = CommonProps & {
-  tag: "a";
-  src: string;
-  type?: never;
-  isModalOpener?: never;
-  isBackButton?: never;
-};
-
-type ButtonProps = CommonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    tag: "button";
-    type?: "button" | "submit";
-    src?: never;
-    isModalOpener?: boolean;
-    isBackButton?: boolean;
-    ref?: React.Ref<HTMLButtonElement>;
-  };
+import { type LinkProps, type ButtonProps } from "./types";
 
 type Props = LinkProps | ButtonProps;
 
@@ -46,11 +23,19 @@ const Button = (props: Props) => {
   );
 
   if (props.tag === "a") {
-    return (
-      <Link href={props.src} className={classes}>
-        {props.children}
-      </Link>
-    );
+    if (props.isDisabled) {
+      return (
+        <span className={classNames(classes, styles.disabled)} aria-disabled="true">
+          {props.children}
+        </span>
+      );
+    } else {
+      return (
+        <Link href={props.src} className={classes}>
+          {props.children}
+        </Link>
+      );
+    }
   }
 
   if (props.tag === "button") {

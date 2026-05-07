@@ -12,6 +12,7 @@ interface Props {
   title?: string;
   text?: string;
   accept?: string;
+  value?: FileList;
   onClear?: () => void;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -19,7 +20,7 @@ interface Props {
 }
 
 export default function CustomFileInput(props: Props) {
-  const { title, text, accept, onClear, onFocus, onBlur, registration } = props;
+  const { title, text, accept, value, onClear, onFocus, onBlur, registration } = props;
 
   const { file, updateFilePreview, previewUrl } = useFilePreview();
 
@@ -45,6 +46,16 @@ export default function CustomFileInput(props: Props) {
       updateFilePreview(null);
     };
   }, [updateFilePreview]);
+
+  useEffect(() => {
+    if (value?.length) return;
+
+    updateFilePreview(null);
+
+    if (inputRef.current) {
+      inputRef.current.value = "";
+    }
+  }, [value, updateFilePreview]);
 
   return (
     <div className={classNames(styles.root, file && styles.isFileUploaded)}>

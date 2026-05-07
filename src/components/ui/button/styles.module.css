@@ -142,9 +142,10 @@
   background-color: var(--color-extraLight-grey);
   color: var(--color-default-grey);
   box-shadow: none;
+  opacity: 0.5;
 }
 
-.root.disabled,
+.root.disabled svg,
 .root:disabled svg {
   color: currentColor;
 }

@@ -7,9 +7,12 @@ import Logo from "@/src/components/ui/logo/Logo";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const currentPath = usePathname();
 
   function closeMenu() {
     setMenuOpen(false);
@@ -40,6 +43,7 @@ export default function Header() {
               src="/create-card"
               variant="small"
               color="gradient"
+              isDisabled={currentPath === "/create-card"}
             >
               Создать карту
             </Button>

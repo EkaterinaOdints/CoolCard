@@ -2,6 +2,8 @@ type DesignCategory = "landscapes" | "animals" | "cars" | "flowers" | "abstracti
 
 type DesignCategoryTitle = "Пейзажи" | "Животные" | "Машины" | "Цветы" | "Абстракция" | "Все";
 
+type PaidOptionId = "nfc" | "color" | "design" | "frontSidePicture" | "backSidePicture" | "urgent" | "frontSideText" | "backSideText";
+
 interface Color {
   name: string;
   style: string;
@@ -17,6 +19,18 @@ interface Picture {
 interface designCategoryItem {
   id: DesignCategory;
   title: DesignCategoryTitle;
+}
+
+interface Font {
+  id: string;
+  title: string;
+  src: string | null;
+}
+
+interface Price {
+  id: PaidOptionId;
+  title: string;
+  price: string;
 }
 
 const colors: Color[] = [
@@ -204,7 +218,7 @@ const designCategories: designCategoryItem[] = [
   },
 ] as const;
 
-const fonts = [
+const fonts: Font[] = [
   { id: "nunito", title: "Nunito (по умолчанию)", src: null },
   { id: "roboto", title: "Roboto", src: "Roboto-Regular.woff2" },
   { id: "inter", title: "Inter", src: "Inter-Regular.woff2" },
@@ -212,4 +226,47 @@ const fonts = [
   { id: "montserrat", title: "Montserrat", src: "Montserrat-Regular.woff2" },
 ];
 
-export { colors, pictures, designCategories, fonts, type DesignCategory, type DesignCategoryTitle };
+const prices: Price[] = [
+  {
+    id: "nfc",
+    title: "NFC",
+    price: "2900",
+  },
+  {
+    id: "color",
+    title: "Цвет",
+    price: "500",
+  },
+  {
+    id: "design",
+    title: "Шаблон дизайна",
+    price: "500",
+  },
+  {
+    id: "frontSidePicture",
+    title: "Индивидуальный дизайн лицевая сторона",
+    price: "1000",
+  },
+  {
+    id: "backSidePicture",
+    title: "Индивидуальный дизайн обратная сторона",
+    price: "1000",
+  },
+  {
+    id: "urgent",
+    title: "Срочно",
+    price: "1000",
+  },
+  {
+    id: "frontSideText",
+    title: "Текст с лицевой стороны",
+    price: "800",
+  },
+  {
+    id: "backSideText",
+    title: "Текст с обратной стороны",
+    price: "800",
+  },
+];
+
+export { colors, pictures, designCategories, fonts, prices, type Picture, type Color, type DesignCategory, type DesignCategoryTitle, type Font };

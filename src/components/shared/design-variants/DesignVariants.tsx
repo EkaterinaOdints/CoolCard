@@ -163,6 +163,7 @@ export default function DesignVariants(props: Props) {
                   text={text}
                   title={title}
                   accept="image/*"
+                  value={id === "frontSidePicture" ? frontSidePicture : backSidePicture}
                   registration={register(id)}
                   onClear={() => {
                     setValue(id, undefined, {
