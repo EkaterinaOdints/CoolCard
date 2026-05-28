@@ -161,11 +161,11 @@
 }
 
 .featureMaterial::before {
-  background-image: url("/images/hero/features-icon-star.png");
+  background-image: url("/CoolCard/images/hero/features-icon-star.png");
 }
 
 .featureSafety::before {
-  background-image: url("/images/hero/features-icon-lock.png");
+  background-image: url("/CoolCard/images/hero/features-icon-lock.png");
 }
 
 @media (max-width: 1600px) {

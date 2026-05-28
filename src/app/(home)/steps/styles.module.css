@@ -49,17 +49,17 @@
 .item:nth-child(1)::before,
 .item:nth-child(4n)::before {
   aspect-ratio: 1073 / 360;
-  background-image: url("/images/steps/bg-step-1.svg");
+  background-image: url("/CoolCard/images/steps/bg-step-1.svg");
 }
 
 .item:nth-child(2)::before,
 .item:nth-child(5n)::before {
-  background-image: url("/images/steps/bg-step-2.svg");
+  background-image: url("/CoolCard/images/steps/bg-step-2.svg");
 }
 
 .item:nth-child(3)::before,
 .item:nth-child(6n)::before {
-  background-image: url("/images/steps/bg-step-3.svg");
+  background-image: url("/CoolCard/images/steps/bg-step-3.svg");
 }
 
 .itemText {
@@ -264,19 +264,19 @@
   .item:nth-child(1)::before,
   .item:nth-child(4n)::before {
     aspect-ratio: 350 / 298;
-    background-image: url("/images/steps/bg-step-1-mobile.svg");
+    background-image: url("/CoolCard/images/steps/bg-step-1-mobile.svg");
   }
 
   .item:nth-child(2)::before,
   .item:nth-child(5n)::before {
     aspect-ratio: 207 / 190;
-    background-image: url("/images/steps/bg-step-2-mobile.svg");
+    background-image: url("/CoolCard/images/steps/bg-step-2-mobile.svg");
   }
 
   .item:nth-child(3)::before,
   .item:nth-child(6n)::before {
     aspect-ratio: 192 / 229;
-    background-image: url("/images/steps/bg-step-3-mobile.svg");
+    background-image: url("/CoolCard/images/steps/bg-step-3-mobile.svg");
   }
 
   .item:nth-child(1) .itemImage,

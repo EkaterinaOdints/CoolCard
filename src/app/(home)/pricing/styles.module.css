@@ -133,7 +133,8 @@
   aspect-ratio: 227 / 200;
   height: 100%;
   background-image:
-    url("/images/pricing/promo-stars.png"), url("/images/pricing/promo-bg.svg");
+    url("/CoolCard/images/pricing/promo-stars.png"),
+    url("/CoolCard/images/pricing/promo-bg.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size:
@@ -291,7 +292,7 @@
   .promo::before {
     left: auto;
     margin: 0 auto;
-    background-image: url("/images/pricing/promo-bg.svg");
+    background-image: url("/CoolCard/images/pricing/promo-bg.svg");
     background-size: cover;
   }
 

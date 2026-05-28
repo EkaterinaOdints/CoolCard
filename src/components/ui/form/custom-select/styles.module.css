@@ -55,7 +55,7 @@
   aspect-ratio: 8 / 14;
   width: 8px;
   background-color: var(--color-default-grey);
-  mask-image: url("/images/angle.svg");
+  mask-image: url("/CoolCard/images/angle.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;

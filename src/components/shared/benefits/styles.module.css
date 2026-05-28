@@ -21,7 +21,7 @@
   display: block;
   width: 289px;
   height: 197px;
-  background-image: url("/images/hero/benefit-bg.svg");
+  background-image: url("/CoolCard/images/hero/benefit-bg.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -66,15 +66,15 @@
 }
 
 .itemStyle .itemTitle::before {
-  mask-image: url("/images/hero/star.svg");
+  mask-image: url("/CoolCard/images/hero/star.svg");
 }
 
 .itemConstructor .itemTitle::before {
-  mask-image: url("/images/hero/paint.svg");
+  mask-image: url("/CoolCard/images/hero/paint.svg");
 }
 
 .itemDeadlines .itemTitle::before {
-  mask-image: url("/images/hero/hourglass.svg");
+  mask-image: url("/CoolCard/images/hero/hourglass.svg");
 }
 
 .itemText {

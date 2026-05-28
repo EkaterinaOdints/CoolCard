@@ -21,7 +21,7 @@
   aspect-ratio: 1 / 1;
   width: 14px;
   background-color: currentColor;
-  mask-image: url("/images/close.svg");
+  mask-image: url("/CoolCard/images/close.svg");
   mask-repeat: no-repeat;
   mask-size: contain;
   mask-position: center;

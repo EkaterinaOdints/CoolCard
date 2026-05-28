@@ -50,7 +50,7 @@
   align-items: center;
   aspect-ratio: 11 / 17;
   width: 11px;
-  mask-image: url("/images/angle.svg");
+  mask-image: url("/CoolCard/images/angle.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;

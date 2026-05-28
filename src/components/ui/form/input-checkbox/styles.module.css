@@ -33,7 +33,7 @@
   aspect-ratio: 9 / 6;
   width: 9px;
   background-color: var(--color-accent-main);
-  mask-image: url("/images/check.svg");
+  mask-image: url("/CoolCard/images/check.svg");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
