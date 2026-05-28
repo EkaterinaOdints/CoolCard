@@ -33,7 +33,7 @@ export default function Header() {
               color="light"
             >
               <svg width="30" height="30" aria-hidden="true">
-                <use href="/sprite.svg#cart"></use>
+                <use href="/CoolCard/sprite.svg#cart"></use>
               </svg>
               <span className={styles.buttonText}>Корзина</span>
             </Button>

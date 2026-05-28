@@ -7,12 +7,12 @@ const steps = [
     id: 1,
     text: "С помощью нашего конструктора создайте свой\u00A0дизайн",
     imgDesktop: {
-      src: "/images/steps/laptop-desktop.png",
+      src: "/CoolCard/images/steps/laptop-desktop.png",
       width: 1082,
       height: 448,
     },
     imgMobile: {
-      src: "/images/steps/laptop-mobile.png",
+      src: "/CoolCard/images/steps/laptop-mobile.png",
       width: 320,
       height: 258,
     },
@@ -22,12 +22,12 @@ const steps = [
     id: 2,
     text: "Оформите заказ и\u00A0выберите\u00A0способ получения",
     imgDesktop: {
-      src: "/images/steps/box-desktop.png",
+      src: "/CoolCard/images/steps/box-desktop.png",
       width: 445,
       height: 358,
     },
     imgMobile: {
-      src: "/images/steps/box-mobile.png",
+      src: "/CoolCard/images/steps/box-mobile.png",
       width: 158,
       height: 190,
     },
@@ -37,12 +37,12 @@ const steps = [
     id: 3,
     text: "Получите вашу карту. Наш\u00A0сотрудник поменяет чип с\u00A0вашей\u00A0карты на новую",
     imgDesktop: {
-      src: "/images/steps/card-desktop.png",
+      src: "/CoolCard/images/steps/card-desktop.png",
       width: 445,
       height: 358,
     },
     imgMobile: {
-      src: "/images/steps/card-mobile.png",
+      src: "/CoolCard/images/steps/card-mobile.png",
       width: 158,
       height: 190,
     },

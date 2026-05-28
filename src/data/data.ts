@@ -2,7 +2,15 @@ type DesignCategory = "landscapes" | "animals" | "cars" | "flowers" | "abstracti
 
 type DesignCategoryTitle = "Пейзажи" | "Животные" | "Машины" | "Цветы" | "Абстракция" | "Все";
 
-type PaidOptionId = "nfc" | "color" | "design" | "frontSidePicture" | "backSidePicture" | "urgent" | "frontSideText" | "backSideText";
+type PaidOptionId =
+  | "nfc"
+  | "color"
+  | "design"
+  | "frontSidePicture"
+  | "backSidePicture"
+  | "urgent"
+  | "frontSideText"
+  | "backSideText";
 
 interface Color {
   name: string;
@@ -36,11 +44,13 @@ interface Price {
 const colors: Color[] = [
   {
     name: "Gradient Dark Tangerine",
-    style: "linear-gradient(130deg, #FF9F0E 0%, #FADCAF 26%,#FAE2BF 33%, #FADEB5 36%, #FF9F0E 59%, #FFBA35 84%, #FF9F0E 93%)",
+    style:
+      "linear-gradient(130deg, #FF9F0E 0%, #FADCAF 26%,#FAE2BF 33%, #FADEB5 36%, #FF9F0E 59%, #FFBA35 84%, #FF9F0E 93%)",
   },
   {
     name: "Gradient Metallic Gold",
-    style: "linear-gradient(100deg, #d4af37 0%, #fff3b0 25%, #e6be8a 45%, #b8860b 75%, #d4af37 100%)",
+    style:
+      "linear-gradient(100deg, #d4af37 0%, #fff3b0 25%, #e6be8a 45%, #b8860b 75%, #d4af37 100%)",
   },
   {
     name: "Gradient Bright Turquoise",
@@ -95,97 +105,97 @@ const colors: Color[] = [
 const pictures: Picture[] = [
   {
     name: "mountains",
-    src: "/images/designs/mountains.png",
+    src: "/CoolCard/images/designs/mountains.png",
     alt: "Горы",
     category: "landscapes",
   },
   {
     name: "animals",
-    src: "/images/designs/animals.png",
+    src: "/CoolCard/images/designs/animals.png",
     alt: "Лесные жители",
     category: "animals",
   },
   {
     name: "cars",
-    src: "/images/designs/cars.png",
+    src: "/CoolCard/images/designs/cars.png",
     alt: "Машины",
     category: "cars",
   },
   {
     name: "sight",
-    src: "/images/designs/sight.png",
+    src: "/CoolCard/images/designs/sight.png",
     alt: "Достопримечательности",
     category: "landscapes",
   },
   {
     name: "flowers",
-    src: "/images/designs/flowers.png",
+    src: "/CoolCard/images/designs/flowers.png",
     alt: "Цветы",
     category: "flowers",
   },
   {
     name: "figures",
-    src: "/images/designs/figures.png",
+    src: "/CoolCard/images/designs/figures.png",
     alt: "Абстрактные фигуры",
     category: "abstraction",
   },
   {
     name: "egypt",
-    src: "/images/designs/egypt.png",
+    src: "/CoolCard/images/designs/egypt.png",
     alt: "Египет",
     category: "landscapes",
   },
   {
     name: "bird",
-    src: "/images/designs/bird.png",
+    src: "/CoolCard/images/designs/bird.png",
     alt: "Птица",
     category: "animals",
   },
   {
     name: "mountains2",
-    src: "/images/designs/mountains.png",
+    src: "/CoolCard/images/designs/mountains.png",
     alt: "Горы",
     category: "landscapes",
   },
   {
     name: "animals2",
-    src: "/images/designs/animals.png",
+    src: "/CoolCard/images/designs/animals.png",
     alt: "Лесные жители",
     category: "animals",
   },
   {
     name: "cars2",
-    src: "/images/designs/cars.png",
+    src: "/CoolCard/images/designs/cars.png",
     alt: "Машины",
     category: "cars",
   },
   {
     name: "sight2",
-    src: "/images/designs/sight.png",
+    src: "/CoolCard/images/designs/sight.png",
     alt: "Достопримечательности",
     category: "landscapes",
   },
   {
     name: "flowers2",
-    src: "/images/designs/flowers.png",
+    src: "/CoolCard/images/designs/flowers.png",
     alt: "Цветы",
     category: "flowers",
   },
   {
     name: "figures2",
-    src: "/images/designs/figures.png",
+    src: "/CoolCard/images/designs/figures.png",
     alt: "Абстрактные фигуры",
     category: "abstraction",
   },
   {
     name: "egypt2",
-    src: "/images/designs/egypt.png",
+    src: "/CoolCard/images/designs/egypt.png",
     alt: "Египет",
     category: "landscapes",
   },
   {
     name: "bird2",
-    src: "/images/designs/bird.png",
+    src: "/CoolCard/images/designs/bird.png",
     alt: "Птица",
     category: "animals",
   },
@@ -269,4 +279,15 @@ const prices: Price[] = [
   },
 ];
 
-export { colors, pictures, designCategories, fonts, prices, type Picture, type Color, type DesignCategory, type DesignCategoryTitle, type Font };
+export {
+  colors,
+  pictures,
+  designCategories,
+  fonts,
+  prices,
+  type Picture,
+  type Color,
+  type DesignCategory,
+  type DesignCategoryTitle,
+  type Font,
+};

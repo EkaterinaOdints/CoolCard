@@ -22,12 +22,12 @@ export default function Hero() {
                 <picture>
                   <source
                     media="(min-width: 769px)"
-                    srcSet="/images/hero/banner-desktop.svg"
+                    srcSet="/CoolCard/images/hero/banner-desktop.svg"
                     width={567}
                     height={368}
                   />
                   <img
-                    src="/images/hero/banner-mobile.svg"
+                    src="/CoolCard/images/hero/banner-mobile.svg"
                     width={267}
                     height={228}
                     alt="Черная карта с надписью: Крутая карта"
@@ -52,12 +52,12 @@ export default function Hero() {
                 <picture>
                   <source
                     media="(min-width: 769px)"
-                    srcSet="/images/hero/subbanner-desktop.png"
+                    srcSet="/CoolCard/images/hero/subbanner-desktop.png"
                     width={507}
                     height={429}
                   />
                   <img
-                    src="/images/hero/subbanner-mobile.png"
+                    src="/CoolCard/images/hero/subbanner-mobile.png"
                     width={155}
                     height={118}
                     alt="Карты с ярким дизаном"

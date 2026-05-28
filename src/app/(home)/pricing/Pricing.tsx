@@ -38,8 +38,8 @@ export default function Pricing() {
           <Title className={styles.title} tag="h2" size="big">
             {/* prettier-ignore */}
             <>
-              Создаём&nbsp;<span className={styles.titleIcon}><svg width="30" height="30" aria-hidden="true"><use href={`/sprite.svg#stars-gradient`}></use></svg></span>
-              индивидуальный дизайн платёжных&nbsp;<span className={styles.titleIcon}><svg width="90" height="90" aria-hidden="true"><use href={`/sprite.svg#wifi-gradient`}></use></svg></span>&nbsp;
+              Создаём&nbsp;<span className={styles.titleIcon}><svg width="30" height="30" aria-hidden="true"><use href={`/CoolCard/sprite.svg#stars-gradient`}></use></svg></span>
+              индивидуальный дизайн платёжных&nbsp;<span className={styles.titleIcon}><svg width="90" height="90" aria-hidden="true"><use href={`/CoolCard/sprite.svg#wifi-gradient`}></use></svg></span>&nbsp;
               карт
             </>
           </Title>
@@ -49,7 +49,7 @@ export default function Pricing() {
                 <li className={styles.item} key={id}>
                   <div className={styles.itemIcon}>
                     <svg width="40" height="40" aria-hidden="true">
-                      <use href={`/sprite.svg#${icon}`}></use>
+                      <use href={`/CoolCard/sprite.svg#${icon}`}></use>
                     </svg>
                   </div>
                   <h3 className={styles.itemTitle}>{title}</h3>

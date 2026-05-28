@@ -51,7 +51,7 @@ export default function ResultPreview(props: Props) {
             <div className={styles.message}>
               <div className={styles.messageIcon}>
                 <svg width="40" height="40" aria-hidden="true">
-                  <use href="/sprite.svg#services"></use>
+                  <use href="/CoolCard/sprite.svg#services"></use>
                 </svg>
               </div>
               <span className={styles.messageText}>{resultMessage}</span>

@@ -27,7 +27,7 @@ export default function SocialList() {
           <a className={styles.link} href={src} key={id}>
             <span className="visually-hidden">{id}</span>
             <svg width="20" height="20" aria-hidden="true">
-              <use href={`/sprite.svg#${id}`}></use>
+              <use href={`/CoolCard/sprite.svg#${id}`}></use>
             </svg>
           </a>
         );
